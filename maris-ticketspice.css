@@ -66,14 +66,17 @@
 
 /* =========================================================
    1) TITLES / HEADINGS
-   Font: fatfrank (matches marisfarms.com)
-   Underline: thin line — 🌷 — thin line
+   Font: Fredoka (fun, rounded, farm-friendly — loaded via Google Fonts)
+   Underline: brush stroke SVG
 ========================================================= */
 
+/* Google Fonts import — Fredoka is rounded, friendly, farm-market energy */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+
 :root{
-  --mf-title-font: fatfrank, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", -apple-system, sans-serif;
+  --mf-title-font: "Fredoka", fatfrank, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --mf-title-color: #3e3e3e;
-  --mf-title-size: 46px;
+  --mf-title-size: 48px;
   --mf-title-line-color: #3e7d5f;
 }
 
