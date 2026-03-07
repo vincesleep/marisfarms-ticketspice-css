@@ -126,41 +126,30 @@
   display: none !important;
 }
 
-/* ── Tulip underline: line 🌷 line ──────────────────────────
-   Uses ::after for the full decorative row.
-   The tulip emoji sits in the middle via a flex trick on a
-   pseudo element isn't possible, so we use a background trick:
-   two thin lines with the emoji character centred between them.
-   We achieve this with a generated content string that reads as
-   a visible text node — the lines are drawn with CSS borders
-   on the ::before (left line) and the ::after (right line),
-   and the tulip sits in the gap between them via padding.
-   Because we can only have two pseudos per element, we place
-   the tulip text in ::after and use a box-shadow trick for
-   the lines on either side.
-────────────────────────────────────────────────────────── */
+/* ── Brush stroke underline (matches Water Lantern Festival style) ──
+   Hand-painted SVG stroke, inline as a data URI.
+   Color: Maris Farms green #3e7d5f
+   - Thick main stroke, tapers toward the right
+   - Lighter second stroke offset below for depth
+   - Rough, organic feel like a real brush
+─────────────────────────────────────────────────────────────────── */
 
 .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::after,
 .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center::after{
-  content: "── 🌷 ──" !important;
+  content: "" !important;
   display: block !important;
   position: absolute !important;
   left: 50% !important;
-  bottom: -30px !important;
+  bottom: -26px !important;
   transform: translateX(-50%) !important;
-  width: auto !important;
-  height: auto !important;
-  background: none !important;
+  width: 380px !important;
+  height: 22px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 380 22' fill='none'%3E%3Cpath d='M2 14 C 30 7, 70 17, 120 12 C 165 7, 210 16, 260 11 C 300 7, 340 15, 370 10 C 374 9.5, 377 9, 378 9' stroke='%233e7d5f' stroke-width='7' stroke-linecap='round' stroke-linejoin='round' opacity='0.82'/%3E%3Cpath d='M2 15.5 C 30 9, 70 18, 120 13.5 C 165 9, 210 17, 260 13 C 300 9.5, 340 16, 368 12 C 372 11.5, 375 11, 377 11' stroke='%233e7d5f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='0.35'/%3E%3Cpath d='M180 10 C 210 8, 250 13, 290 10 C 320 8, 350 12, 372 9' stroke='%233e7d5f' stroke-width='1.5' stroke-linecap='round' opacity='0.2'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   filter: none !important;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif !important;
-  font-size: 18px !important;
-  font-weight: 400 !important;
-  color: var(--mf-title-line-color) !important;
-  letter-spacing: 4px !important;
-  white-space: nowrap !important;
-  line-height: 1 !important;
 }
 
 /* Remove any conflicting ::before on strong */
@@ -655,11 +644,12 @@ table.holds-tickets thead tr:first-child th.cost::before{
     margin: 0 auto 38px !important;
   }
 
-  /* Tulip underline stays same size on mobile */
+  /* Brush stroke underline — scale down on mobile */
   .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::after,
   .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center::after{
-    font-size: 16px !important;
-    bottom: -26px !important;
+    width: 220px !important;
+    height: 16px !important;
+    bottom: -20px !important;
   }
 
   .wbx-calendar .month-label{
