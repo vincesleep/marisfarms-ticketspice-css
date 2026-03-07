@@ -66,15 +66,12 @@
 
 /* =========================================================
    1) TITLES / HEADINGS
-   Font: Fredoka (fun, rounded, farm-friendly — loaded via Google Fonts)
-   Underline: brush stroke SVG
+   Font: fatfrank — matches marisfarms.com exactly
+   (same font used in "2026 Annual Passes on Sale NOW!" heading)
 ========================================================= */
 
-/* Google Fonts import — Fredoka is rounded, friendly, farm-market energy */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
-
 :root{
-  --mf-title-font: "Fredoka", fatfrank, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --mf-title-font: fatfrank, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", -apple-system, sans-serif;
   --mf-title-color: #3e3e3e;
   --mf-title-size: 48px;
   --mf-title-line-color: #3e7d5f;
@@ -452,22 +449,30 @@ table.holds-tickets thead tr:first-child th.cost::before{
 
 .ticket-block tr.ticket-type td.description h4{
   color: #2f3a35 !important;
-  font-weight: 800 !important;
+  font-weight: 500 !important;
   font-family: var(--mf-title-font) !important;
+  font-size: 16px !important;
+  letter-spacing: 0.01em !important;
 }
 
 .ticket-block tr.ticket-type td.description p{
-  color: rgba(0,0,0,0.64) !important;
+  color: rgba(0,0,0,0.58) !important;
+  font-weight: 400 !important;
+  font-size: 13px !important;
 }
 
 .ticket-block table.holds-tickets .cost-fee-info-wrapper .cost-fee-wrapper .ticket-cost{
   color: #3e7d5f !important;
-  font-weight: 900 !important;
+  font-weight: 700 !important;
   font-family: var(--mf-title-font) !important;
+  font-size: 22px !important;
+  letter-spacing: -0.01em !important;
 }
 
 .ticket-block table.holds-tickets .ticket-fee{
-  color: rgba(0,0,0,0.42) !important;
+  color: rgba(0,0,0,0.40) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
 }
 
 .campaign-form:not(.legacy-form) .ticket-block select{
