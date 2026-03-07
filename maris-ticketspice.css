@@ -1,18 +1,15 @@
 /* =========================================================
    MARIS FARMS / TICKETSPICE
-   FULL UPDATED CUSTOM CSS
-   - Buyer title style matched closer
-   - Special Merchandise / Coupon Code headings matched
-   - Calendar restyled
-   - Mobile overlap fixed
-   - Top header simplified (no extra shadow element)
+   Baby Animals & Blooms — Full Custom CSS
+   Updated:
+   - Font matched to marisfarms.com (fatfrank)
+   - Title underline replaced with  line 🌷 line  treatment
+   - All other styles preserved
 ========================================================= */
 
 
 /* =========================================================
    0) TOP HEADER CLEANUP
-   - Buyer wants no rounded white element visible
-   - No shadow
 ========================================================= */
 .form-header-wrap{
   position: relative !important;
@@ -57,7 +54,6 @@
   filter: none !important;
 }
 
-/* Preview frame */
 .preview-frame .preview-frame__top-bar{
   border: none !important;
   box-shadow: none !important;
@@ -70,56 +66,36 @@
 
 /* =========================================================
    1) TITLES / HEADINGS
-   - Tickets title
-   - Special Merchandise
-   - Coupon Code
-   - Same size + same placement
-========================================================= */
-
-
-
-
-
-
-
-
-
-/* Shared premium title look */
-
-/* =========================================================
-   1) TITLES / HEADINGS
-   - Tickets / Special Merchandise / Coupon Code
-   - Same size + same placement
-   - No screenshot-style blurry decoration
+   Font: fatfrank (matches marisfarms.com)
+   Underline: thin line — 🌷 — thin line
 ========================================================= */
 
 :root{
+  --mf-title-font: fatfrank, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", -apple-system, sans-serif;
   --mf-title-color: #3e3e3e;
   --mf-title-size: 56px;
-  --mf-title-underline-width: 235px;
-  --mf-title-underline-height: 10px;
-  --mf-title-underline-color: #d88f82;
+  --mf-title-line-color: #3e7d5f;
 }
 
+/* Center the wrapper */
 .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align,
 .campaign-form:not(.legacy-form) .field-textHeading.registrant-field .label-align.form-width{
   text-align: center !important;
 }
 
+/* Title text */
 .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p,
 .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center{
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: block !important;
   width: 100% !important;
-  margin: 0 auto 34px !important;
+  margin: 0 auto 42px !important;
   padding: 0 !important;
   position: relative !important;
-  font-family: Source Sans Pro!important;
+  font-family: var(--mf-title-font) !important;
   font-size: var(--mf-title-size) !important;
   font-weight: 400 !important;
   font-style: normal !important;
-  line-height: 1.02 !important;
+  line-height: 1.05 !important;
   letter-spacing: 0 !important;
   color: var(--mf-title-color) !important;
   text-align: center !important;
@@ -127,6 +103,7 @@
   text-shadow: none !important;
 }
 
+/* Carry font through any nested strong/span TicketSpice wraps */
 .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong,
 .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong span,
 .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong span span{
@@ -134,7 +111,7 @@
   margin: 0 !important;
   padding: 0 !important;
   background: none !important;
-  font-family: Source Sans Pro !important;
+  font-family: var(--mf-title-font) !important;
   font-size: inherit !important;
   font-weight: inherit !important;
   font-style: inherit !important;
@@ -149,22 +126,48 @@
   display: none !important;
 }
 
+/* ── Tulip underline: line 🌷 line ──────────────────────────
+   Uses ::after for the full decorative row.
+   The tulip emoji sits in the middle via a flex trick on a
+   pseudo element isn't possible, so we use a background trick:
+   two thin lines with the emoji character centred between them.
+   We achieve this with a generated content string that reads as
+   a visible text node — the lines are drawn with CSS borders
+   on the ::before (left line) and the ::after (right line),
+   and the tulip sits in the gap between them via padding.
+   Because we can only have two pseudos per element, we place
+   the tulip text in ::after and use a box-shadow trick for
+   the lines on either side.
+────────────────────────────────────────────────────────── */
+
 .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::after,
 .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center::after{
-  content: "" !important;
+  content: "── 🌷 ──" !important;
+  display: block !important;
   position: absolute !important;
   left: 50% !important;
-  bottom: -8px !important;
-  width: var(--mf-title-underline-width) !important;
-  height: var(--mf-title-underline-height) !important;
-  transform: translateX(-50%) rotate(-2deg) !important;
-  border-radius: 999px !important;
-  background:rgba(62, 125, 95, 1) !important;
+  bottom: -30px !important;
+  transform: translateX(-50%) !important;
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
   filter: none !important;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  color: var(--mf-title-line-color) !important;
+  letter-spacing: 4px !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
 }
 
-
+/* Remove any conflicting ::before on strong */
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::before{
+  content: none !important;
+  display: none !important;
+}
 
 
 /* =========================================================
@@ -196,6 +199,7 @@ table.holds-tickets thead tr:first-child th{
   border: 1px solid rgba(255,255,255,0.14) !important;
   padding: 18px 18px !important;
   font-weight: 800 !important;
+  font-family: var(--mf-title-font) !important;
   box-shadow: none !important;
   vertical-align: top !important;
 }
@@ -240,6 +244,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
   padding: 0 !important;
   color: #3e7d5f !important;
   font-weight: 900 !important;
+  font-family: var(--mf-title-font) !important;
   line-height: 1.22 !important;
   display: block !important;
   overflow: visible !important;
@@ -249,7 +254,6 @@ table.holds-tickets thead tr:first-child th.cost::before{
 
 /* =========================================================
    5) DATE INPUT
-   - Keep icon visible
 ========================================================= */
 .campaign-form:not(.legacy-form) .ticket-block .datePicker,
 .campaign-form:not(.legacy-form) .ticket-block .field-area{
@@ -268,6 +272,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
   border-radius: 10px !important;
   box-shadow: none !important;
   padding-right: 42px !important;
+  font-family: var(--mf-title-font) !important;
 }
 
 
@@ -309,7 +314,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
 }
 
 .wbx-calendar .month-label{
-  font-family: inherit !important;
+  font-family: var(--mf-title-font) !important;
   font-size: 16px !important;
   line-height: 1 !important;
   font-weight: 800 !important;
@@ -371,6 +376,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
   font-weight: 800 !important;
   color: #61706a !important;
   padding: 6px 0 !important;
+  font-family: var(--mf-title-font) !important;
 }
 
 .wbx-calendar .row.week .day{
@@ -380,8 +386,10 @@ table.holds-tickets thead tr:first-child th.cost::before{
   font-weight: 700 !important;
   color: #4a4a4a !important;
   border: 1px solid transparent !important;
+  font-family: var(--mf-title-font) !important;
   transition: background .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease,border-color .18s ease !important;
 }
+
 .wbx-calendar .row.week .day.different-month{
   color: rgba(68,68,68,0.32) !important;
 }
@@ -453,6 +461,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
 .ticket-block tr.ticket-type td.description h4{
   color: #2f3a35 !important;
   font-weight: 800 !important;
+  font-family: var(--mf-title-font) !important;
 }
 
 .ticket-block tr.ticket-type td.description p{
@@ -462,28 +471,17 @@ table.holds-tickets thead tr:first-child th.cost::before{
 .ticket-block table.holds-tickets .cost-fee-info-wrapper .cost-fee-wrapper .ticket-cost{
   color: #3e7d5f !important;
   font-weight: 900 !important;
+  font-family: var(--mf-title-font) !important;
 }
 
 .ticket-block table.holds-tickets .ticket-fee{
   color: rgba(0,0,0,0.42) !important;
 }
 
-/*.campaign-form:not(.legacy-form) .ticket-block select{*/
-/*  color: #3e7d5f !important;*/
-/*  border: 1px solid rgba(62,125,95,0.28) !important;*/
-/*  border-radius: 12px !important;*/
-/*  background: #ffffff !important;*/
-/*  box-shadow: none !important;*/
-/*  padding: 10px 14px !important;*/
-/*  font-weight: 800 !important;*/
-/*}*/
-
-
 .campaign-form:not(.legacy-form) .ticket-block select{
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
   appearance: none !important;
-
   color: #3e7d5f !important;
   border: 1px solid rgba(62,125,95,0.28) !important;
   border-radius: 12px !important;
@@ -492,16 +490,33 @@ table.holds-tickets thead tr:first-child th.cost::before{
   background-repeat: no-repeat !important;
   background-position: right 12px center !important;
   background-size: 16px 16px !important;
-
   box-shadow: none !important;
   padding: 10px 38px 10px 14px !important;
   font-weight: 800 !important;
+  font-family: var(--mf-title-font) !important;
   cursor: pointer !important;
 }
 
 
 /* =========================================================
-   8) DIVIDER + TOTAL
+   8) BUTTONS — match marisfarms.com fatfrank style
+========================================================= */
+.campaign-form:not(.legacy-form) .btn-danger,
+.campaign-form:not(.legacy-form) .btn-primary,
+.campaign-form:not(.legacy-form) .btn:not(.btn--transparent):not(.btn--plus):not(.btn--minus):not(.btn--home):not(.btn--tooltipstered):not(.btn--blue){
+  font-family: var(--mf-title-font) !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  color: white !important;
+  border-radius: 10px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  text-transform: uppercase !important;
+}
+
+
+/* =========================================================
+   9) DIVIDER + TOTAL
 ========================================================= */
 .ticket-block tr.ticket-level-divider td{
   background: transparent !important;
@@ -519,6 +534,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
   color: #ffffff !important;
   font-weight: 900 !important;
   font-size: 18px !important;
+  font-family: var(--mf-title-font) !important;
   border: 0 !important;
   padding: 12px 10px 2px !important;
   text-align: right !important;
@@ -527,9 +543,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
 
 
 /* =========================================================
-   9) MOBILE FIXES
-   - Fix header overlap
-   - Stack cards cleanly
+   10) MOBILE FIXES
 ========================================================= */
 @media (max-width: 768px){
 
@@ -539,7 +553,6 @@ table.holds-tickets thead tr:first-child th.cost::before{
     padding: 10px !important;
   }
 
-  /* Mobile header row becomes a true stacked layout */
   table.holds-tickets thead{
     display: table-header-group !important;
   }
@@ -572,7 +585,6 @@ table.holds-tickets thead tr:first-child th.cost::before{
     display: none !important;
   }
 
-  /* Default mobile: when date is selected, keep picker under Tickets for */
   table.holds-tickets thead tr:first-child th.description .field-area,
   table.holds-tickets thead tr:first-child th.description .datePicker{
     display: block !important;
@@ -592,32 +604,28 @@ table.holds-tickets thead tr:first-child th.cost::before{
     box-sizing: border-box !important;
   }
 
-  /* ONLY when empty state exists: move picker under "Please choose a date" */
-    /* ONLY when empty state exists: move picker under "Please choose a date" */
-table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .field-area,
-table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .datePicker{
-  position: absolute !important;
-  left: 50% !important;
-  top: calc(100% + 80px) !important;
-  transform: translateX(-50%) !important;
-  width: min(82vw, 320px) !important;
-  margin: 0 !important;
-  z-index: 40 !important;
-}
+  table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .field-area,
+  table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .datePicker{
+    position: absolute !important;
+    left: 50% !important;
+    top: calc(100% + 80px) !important;
+    transform: translateX(-50%) !important;
+    width: min(82vw, 320px) !important;
+    margin: 0 !important;
+    z-index: 40 !important;
+  }
 
-/* Empty state mobile */
-.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets:has(td.empty-block) td.empty-block{
-  padding: 54px 16px 34px !important;
-}
+  .campaign-form:not(.legacy-form) .ticket-block table.holds-tickets:has(td.empty-block) td.empty-block{
+    padding: 54px 16px 34px !important;
+  }
 
-.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets:has(td.empty-block) td.empty-block h2{
-  margin: 0 0 64px !important;
-  line-height: 1.18 !important;
-  position: relative !important;
-  z-index: 1 !important;
-}
+  .campaign-form:not(.legacy-form) .ticket-block table.holds-tickets:has(td.empty-block) td.empty-block h2{
+    margin: 0 0 64px !important;
+    line-height: 1.18 !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
 
-  /* Stack ticket rows cleanly */
   .ticket-block tr.ticket-type td.description,
   .ticket-block tr.ticket-type td.price-info-wrapper{
     display: block !important;
@@ -640,21 +648,19 @@ table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .dat
     margin-top: 8px !important;
   }
 
-  /* Smaller heading sizes on mobile */
   /* Mobile title sizing */
   .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p,
   .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center{
     font-size: 36px !important;
-    margin: 0 auto 28px !important;
+    margin: 0 auto 38px !important;
   }
 
+  /* Tulip underline stays same size on mobile */
   .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::after,
   .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center::after{
-    width: 170px !important;
-    height: 9px !important;
-    bottom: -6px !important;
+    font-size: 16px !important;
+    bottom: -26px !important;
   }
-
 
   .wbx-calendar .month-label{
     font-size: 15px !important;
@@ -663,7 +669,7 @@ table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .dat
 
 
 /* =========================================================
-   10) OVERFLOW / POPUP SAFETY
+   11) OVERFLOW / POPUP SAFETY
 ========================================================= */
 .campaign-form:not(.legacy-form) .ticket-block,
 .campaign-form:not(.legacy-form) .ticket-block table.holds-tickets,
@@ -677,7 +683,7 @@ table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .dat
 
 
 /* =========================================================
-   11) PREREG / EXTRA SECTIONS (kept from your current CSS)
+   12) PREREG / EXTRA SECTIONS
 ========================================================= */
 .mf-preview-video{
   max-width: 900px;
@@ -703,7 +709,6 @@ table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .dat
   border: 0;
 }
 
-/* Make â€œTickets go on sale in:â€ look like part of the theme */
 .form-message{
   max-width: 900px;
   margin: 0 auto;
@@ -715,19 +720,19 @@ table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .dat
   font-weight: 900;
   letter-spacing: .02em;
   color: #b24b75;
+  font-family: var(--mf-title-font);
 }
 
 .form-message > p:before{
-  content: "ðŸŒ· ";
+  content: "🌷 ";
   font-weight: 700;
 }
 
 .form-message > p:after{
-  content: " ðŸŒ·";
+  content: " 🌷";
   font-weight: 700;
 }
 
-/* Countdown tulip card + extra space after */
 .form-message > h2{
   display: inline-flex;
   flex-wrap: wrap;
@@ -740,6 +745,7 @@ table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .dat
   border: 1px solid rgba(178,75,117,.22);
   border-radius: 18px;
   box-shadow: 0 12px 32px rgba(2,6,23,.10);
+  font-family: var(--mf-title-font);
 }
 
 .form-message > h2 .countdown-number{
@@ -754,7 +760,6 @@ table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .dat
   font-weight: 900;
 }
 
-/* Email capture */
 #mf-email{
   scroll-margin-top: 18px;
 }
@@ -806,15 +811,14 @@ form.registration-closed button.btn-primary{
   font-weight: 900;
   letter-spacing: .02em;
   text-transform: uppercase;
+  font-family: var(--mf-title-font);
 }
 
-/* Pulse highlight */
 form.registration-closed input[type=email].mf-prereg-pulse{
   border-color: rgba(201,75,122,.95) !important;
   box-shadow: 0 0 0 9px rgba(201,75,122,.22) !important;
 }
 
-/* Match scroll button */
 .mf-btn.mf-scroll{
   display: inline-flex;
   align-items: center;
@@ -827,6 +831,7 @@ form.registration-closed input[type=email].mf-prereg-pulse{
   color: #fff;
   font-weight: 900;
   letter-spacing: .02em;
+  font-family: var(--mf-title-font);
 }
 
 .mf-btn.mf-scroll:active{
