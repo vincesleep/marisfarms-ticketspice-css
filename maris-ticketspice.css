@@ -955,32 +955,40 @@ form.registration-closed input[type=email].mf-prereg-pulse{
    If dates aren't coloring, check DevTools for exact format.
 ========================================================= */
 
-/* ── Field Trip dates ── */
-.wbx-calendar .day[data-date="2026-04-29"],
-.wbx-calendar .day[data-date="2026-05-06"],
-.wbx-calendar .day[data-date="2026-05-07"] {
+/* ── Field Trip dates — specificity matches .row.week .day.enabled ── */
+.wbx-calendar .row.week .day[data-date="2026-04-29"],
+.wbx-calendar .row.week .day[data-date="2026-4-29"],
+.wbx-calendar .row.week .day[data-date="2026-05-06"],
+.wbx-calendar .row.week .day[data-date="2026-5-6"],
+.wbx-calendar .row.week .day[data-date="2026-05-07"],
+.wbx-calendar .row.week .day[data-date="2026-5-7"] {
   background   : #F5A623 !important;
   color        : #ffffff !important;
   border-color : #c8820a !important;
   box-shadow   : 0 4px 12px rgba(245,166,35,0.35) !important;
   font-weight  : 900 !important;
 }
-.wbx-calendar .day[data-date="2026-04-29"]:hover,
-.wbx-calendar .day[data-date="2026-05-06"]:hover,
-.wbx-calendar .day[data-date="2026-05-07"]:hover {
+.wbx-calendar .row.week .day[data-date="2026-04-29"]:hover,
+.wbx-calendar .row.week .day[data-date="2026-4-29"]:hover,
+.wbx-calendar .row.week .day[data-date="2026-05-06"]:hover,
+.wbx-calendar .row.week .day[data-date="2026-5-6"]:hover,
+.wbx-calendar .row.week .day[data-date="2026-05-07"]:hover,
+.wbx-calendar .row.week .day[data-date="2026-5-7"]:hover {
   background   : #d4880a !important;
   transform    : translateY(-1px) scale(1.03) !important;
 }
 
 /* ── Gleaning Day ── */
-.wbx-calendar .day[data-date="2026-05-16"] {
+.wbx-calendar .row.week .day[data-date="2026-05-16"],
+.wbx-calendar .row.week .day[data-date="2026-5-16"] {
   background   : #9B7DD4 !important;
   color        : #ffffff !important;
   border-color : #7a5cb8 !important;
   box-shadow   : 0 4px 12px rgba(155,125,212,0.35) !important;
   font-weight  : 900 !important;
 }
-.wbx-calendar .day[data-date="2026-05-16"]:hover {
+.wbx-calendar .row.week .day[data-date="2026-05-16"]:hover,
+.wbx-calendar .row.week .day[data-date="2026-5-16"]:hover {
   background   : #7a5cb8 !important;
   transform    : translateY(-1px) scale(1.03) !important;
 }
