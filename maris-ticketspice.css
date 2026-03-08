@@ -1092,3 +1092,13 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 .mf-cal-legend-dot.farm  { background: #3e7d5f !important; }
 .mf-cal-legend-dot.trip  { background: #d4900a !important; }
 .mf-cal-legend-dot.glean { background: #8b6cc4 !important; }
+
+/* Mother's Day heart icon inside date cell */
+.wbx-calendar span.day .mf-heart {
+  display     : block !important;
+  font-size   : 9px !important;
+  line-height : 1 !important;
+  margin-top  : 1px !important;
+  color       : #e05c8a !important;
+  flex-shrink : 0 !important;
+}
