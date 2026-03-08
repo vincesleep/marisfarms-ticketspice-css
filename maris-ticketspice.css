@@ -997,20 +997,21 @@ form.registration-closed input[type=email].mf-prereg-pulse{
    sibling div we inject once via the promo script. Pure CSS
    handles all the visual styling. */
 .mf-cal-legend {
-  display         : flex !important;
+  display         : inline-flex !important;
   align-items     : center !important;
-  justify-content : center !important;
+  justify-content : flex-start !important;
   gap             : 14px !important;
   flex-wrap       : wrap !important;
-  margin-top      : 6px !important;
-  padding         : 6px 10px !important;
+  margin-top      : 8px !important;
+  padding         : 5px 14px 5px 10px !important;
   border-radius   : 8px !important;
-  background      : rgba(255,255,255,0.80) !important;
+  background      : rgba(255,255,255,0.85) !important;
   border          : 1px solid rgba(62,125,95,0.12) !important;
   font-family     : var(--mf-title-font) !important;
   font-size       : 11.5px !important;
   color           : #4a5a52 !important;
   font-weight     : 500 !important;
+  /* inline-flex means it only takes up as much width as its content */
 }
 
 .mf-cal-legend-item {
@@ -1031,9 +1032,3 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 .mf-cal-legend-dot.farm  { background: #3e7d5f !important; }
 .mf-cal-legend-dot.trip  { background: #F5A623 !important; }
 .mf-cal-legend-dot.glean { background: #9B7DD4 !important; }
-
-/* Legend left-align fix */
-.mf-cal-legend {
-  justify-content : flex-start !important;
-  padding-left    : 4px !important;
-}
