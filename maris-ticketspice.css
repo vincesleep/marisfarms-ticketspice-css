@@ -534,9 +534,17 @@ table.holds-tickets thead tr:first-child th.cost::before{
   background-size: 16px 16px !important;
   box-shadow: none !important;
   padding: 10px 38px 10px 14px !important;
-  font-weight: 800 !important;
+  font-weight: 600 !important;
   font-family: var(--mf-title-font) !important;
   cursor: pointer !important;
+}
+
+/* Ensure option text is always readable in native dropdown */
+.campaign-form:not(.legacy-form) .ticket-block select option{
+  color: #2f3a35 !important;
+  background: #ffffff !important;
+  font-family: var(--mf-title-font) !important;
+  font-weight: 400 !important;
 }
 
 
