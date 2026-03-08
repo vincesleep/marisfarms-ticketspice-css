@@ -466,16 +466,28 @@ table.holds-tickets thead tr:first-child th.cost::before{
 
 .ticket-block table.holds-tickets .cost-fee-info-wrapper .cost-fee-wrapper .ticket-cost{
   color: #3e7d5f !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   font-family: var(--mf-title-font) !important;
-  font-size: 22px !important;
-  letter-spacing: -0.01em !important;
+  font-size: 17px !important;
+  letter-spacing: 0 !important;
+}
+
+/* Apply consistent price sizing to ALL ticket rows globally */
+.ticket-block tr.ticket-type td.price-info-wrapper .ticket-cost,
+.ticket-block tr.ticket-type td.price-info-wrapper .cost,
+.ticket-block tr.ticket-type td.price-info-wrapper [class*="ticket-cost"],
+.ticket-block tr.ticket-type td.price-info-wrapper [class*="price"]{
+  font-family : var(--mf-title-font) !important;
+  font-size   : 17px !important;
+  font-weight : 600 !important;
+  color       : #3e7d5f !important;
 }
 
 .ticket-block table.holds-tickets .ticket-fee{
   color: rgba(0,0,0,0.40) !important;
   font-size: 12px !important;
   font-weight: 400 !important;
+  font-family: var(--mf-title-font) !important;
 }
 
 .campaign-form:not(.legacy-form) .ticket-block select{
