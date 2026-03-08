@@ -178,7 +178,7 @@
   padding: 14px !important;
   border: none !important;
   box-shadow: 0 16px 40px rgba(0,0,0,.10) !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 
