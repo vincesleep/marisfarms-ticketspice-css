@@ -1038,8 +1038,8 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 }
 
 .mf-cal-legend-dot.farm  { background: #3e7d5f !important; }
-.mf-cal-legend-dot.trip  { background: #F5A623 !important; }
-.mf-cal-legend-dot.glean { background: #9B7DD4 !important; }
+.mf-cal-legend-dot.trip  { background: #d4900a !important; }
+.mf-cal-legend-dot.glean { background: #8b6cc4 !important; }
 
 
 /* =========================================================
@@ -1090,5 +1090,5 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 }
 
 .mf-cal-legend-dot.farm  { background: #3e7d5f !important; }
-.mf-cal-legend-dot.trip  { background: #F5A623 !important; }
-.mf-cal-legend-dot.glean { background: #9B7DD4 !important; }
+.mf-cal-legend-dot.trip  { background: #d4900a !important; }
+.mf-cal-legend-dot.glean { background: #8b6cc4 !important; }
