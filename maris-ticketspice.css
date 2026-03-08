@@ -458,6 +458,15 @@ table.holds-tickets thead tr:first-child th.cost::before{
   letter-spacing: 0.01em !important;
 }
 
+/* ALL ticket description body text — dates, description paragraphs */
+.ticket-block tr.ticket-type td.description,
+.ticket-block tr.ticket-type td.description p,
+.ticket-block tr.ticket-type td.description div,
+.ticket-block tr.ticket-type td.description span,
+.ticket-block tr.ticket-type td.description li{
+  font-family: var(--mf-title-font) !important;
+}
+
 .ticket-block tr.ticket-type td.description p{
   color: rgba(0,0,0,0.58) !important;
   font-weight: 400 !important;
@@ -472,11 +481,23 @@ table.holds-tickets thead tr:first-child th.cost::before{
   letter-spacing: 0 !important;
 }
 
-/* Apply consistent price sizing to ALL ticket rows globally */
+/* Consistent price sizing for ALL ticket types — covers add-ons, select-style, flat prices */
+.ticket-block tr.ticket-type td.price-info-wrapper,
+.ticket-block tr.ticket-type td.price-info-wrapper *{
+  font-family: var(--mf-title-font) !important;
+}
 .ticket-block tr.ticket-type td.price-info-wrapper .ticket-cost,
 .ticket-block tr.ticket-type td.price-info-wrapper .cost,
 .ticket-block tr.ticket-type td.price-info-wrapper [class*="ticket-cost"],
 .ticket-block tr.ticket-type td.price-info-wrapper [class*="price"]{
+  font-size   : 17px !important;
+  font-weight : 600 !important;
+  color       : #3e7d5f !important;
+}
+/* Add-on ticket price (e.g. $115.00 shown as large text outside cost-fee-wrapper) */
+.ticket-block tr.ticket-type td.price-info-wrapper > div > .ticket-cost,
+.ticket-block tr.ticket-type td.price-info-wrapper .price-display,
+.ticket-block tr.ticket-type td.price-info-wrapper strong{
   font-family : var(--mf-title-font) !important;
   font-size   : 17px !important;
   font-weight : 600 !important;
@@ -488,6 +509,15 @@ table.holds-tickets thead tr:first-child th.cost::before{
   font-size: 12px !important;
   font-weight: 400 !important;
   font-family: var(--mf-title-font) !important;
+}
+
+/* "Price and availability may vary" subtext */
+.ticket-block tr.ticket-type td.price-info-wrapper .price-note,
+.ticket-block tr.ticket-type td.price-info-wrapper .availability-note,
+.ticket-block tr.ticket-type td.price-info-wrapper small{
+  font-family : var(--mf-title-font) !important;
+  font-size   : 12px !important;
+  color       : rgba(0,0,0,0.42) !important;
 }
 
 .campaign-form:not(.legacy-form) .ticket-block select{
@@ -696,31 +726,57 @@ table.holds-tickets thead tr:first-child th.cost::before{
 
 
 /* =========================================================
-   11b) BILLING INFORMATION HEADING
-   Aligns "Billing Information" h1 with the page title font
-   so the section header feels consistent with Tickets heading
+   11b) SECTION HEADINGS — Tickets, Billing Information,
+        Terms & Conditions. Fredoka at 26px / weight 600,
+        matching the ticket row font for visual consistency.
 ========================================================= */
+
+/* "Tickets" header inside the ticket block (th text) */
+table.holds-tickets thead tr:first-child th{
+  font-family: var(--mf-title-font) !important;
+  font-size  : 18px !important;
+  font-weight: 600 !important;
+}
+
+/* Billing Information h1 */
 .campaign-form:not(.legacy-form) .billing-wrap h1,
 .campaign-form:not(.legacy-form) .billing-section h1,
 .campaign-form:not(.legacy-form) h1.billing-title,
 .campaign-form:not(.legacy-form) .field-textHeading.billing-field h1,
 .campaign-form:not(.legacy-form) .registrant-header h1,
 .campaign-form:not(.legacy-form) .registrant-section > h1{
-  font-family: var(--mf-title-font) !important;
-  font-size: 28px !important;
-  font-weight: 400 !important;
-  color: var(--mf-title-color) !important;
+  font-family   : var(--mf-title-font) !important;
+  font-size     : 26px !important;
+  font-weight   : 600 !important;
+  color         : var(--mf-title-color) !important;
   letter-spacing: 0 !important;
-  text-align: center !important;
-  margin-bottom: 22px !important;
+  text-align    : center !important;
+  margin-bottom : 20px !important;
 }
 
-/* Catch-all: any h1 outside the ticket block that isn't the main title */
+/* Catch-all: any h1 that isn't the main page title */
 .campaign-form:not(.legacy-form) h1:not(.text-center){
   font-family: var(--mf-title-font) !important;
-  font-size: 28px !important;
-  font-weight: 400 !important;
-  color: var(--mf-title-color) !important;
+  font-size  : 26px !important;
+  font-weight: 600 !important;
+  color      : var(--mf-title-color) !important;
+}
+
+/* Terms & Conditions + any other section h2/h3 headings */
+.campaign-form:not(.legacy-form) .section-header,
+.campaign-form:not(.legacy-form) .terms-header,
+.campaign-form:not(.legacy-form) h2.section-title,
+.campaign-form:not(.legacy-form) h3.section-title{
+  font-family: var(--mf-title-font) !important;
+  font-size  : 20px !important;
+  font-weight: 600 !important;
+  color      : var(--mf-title-color) !important;
+}
+
+/* Form field labels throughout billing section */
+.campaign-form:not(.legacy-form) .field-label,
+.campaign-form:not(.legacy-form) label{
+  font-family: var(--mf-title-font) !important;
 }
 
 
