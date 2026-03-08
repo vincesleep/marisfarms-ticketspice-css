@@ -1031,3 +1031,9 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 .mf-cal-legend-dot.farm  { background: #3e7d5f !important; }
 .mf-cal-legend-dot.trip  { background: #F5A623 !important; }
 .mf-cal-legend-dot.glean { background: #9B7DD4 !important; }
+
+/* Legend left-align fix */
+.mf-cal-legend {
+  justify-content : flex-start !important;
+  padding-left    : 4px !important;
+}
