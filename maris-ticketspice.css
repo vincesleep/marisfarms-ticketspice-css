@@ -945,118 +945,19 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 }
 
 
-/* =========================================================
-   13) CALENDAR SPECIAL DATE COLORS + LEGEND
-   
-   Field Trips  : Apr 29, May 6, May 7   → amber #F5A623
-   Gleaning Day : May 16                  → purple #9B7DD4
-
-   NOTE: TicketSpice uses zero-padded data-date="YYYY-MM-DD"
-   If dates aren't coloring, check DevTools for exact format.
-========================================================= */
-
-/* ── Field Trip dates — specificity matches .row.week .day.enabled ── */
-.wbx-calendar .row.week .day[data-date="2026-04-29"],
-.wbx-calendar .row.week .day[data-date="2026-4-29"],
-.wbx-calendar .row.week .day[data-date="2026-05-06"],
-.wbx-calendar .row.week .day[data-date="2026-5-6"],
-.wbx-calendar .row.week .day[data-date="2026-05-07"],
-.wbx-calendar .row.week .day[data-date="2026-5-7"] {
-  background   : #F5A623 !important;
-  color        : #ffffff !important;
-  border-color : #c8820a !important;
-  box-shadow   : 0 4px 12px rgba(245,166,35,0.35) !important;
-  font-weight  : 900 !important;
-}
-.wbx-calendar .row.week .day[data-date="2026-04-29"]:hover,
-.wbx-calendar .row.week .day[data-date="2026-4-29"]:hover,
-.wbx-calendar .row.week .day[data-date="2026-05-06"]:hover,
-.wbx-calendar .row.week .day[data-date="2026-5-6"]:hover,
-.wbx-calendar .row.week .day[data-date="2026-05-07"]:hover,
-.wbx-calendar .row.week .day[data-date="2026-5-7"]:hover {
-  background   : #d4880a !important;
-  transform    : translateY(-1px) scale(1.03) !important;
-}
-
-/* ── Gleaning Day ── */
-.wbx-calendar .row.week .day[data-date="2026-05-16"],
-.wbx-calendar .row.week .day[data-date="2026-5-16"] {
-  background   : #9B7DD4 !important;
-  color        : #ffffff !important;
-  border-color : #7a5cb8 !important;
-  box-shadow   : 0 4px 12px rgba(155,125,212,0.35) !important;
-  font-weight  : 900 !important;
-}
-.wbx-calendar .row.week .day[data-date="2026-05-16"]:hover,
-.wbx-calendar .row.week .day[data-date="2026-5-16"]:hover {
-  background   : #7a5cb8 !important;
-  transform    : translateY(-1px) scale(1.03) !important;
-}
-
-/* ── Legend — rendered as three color chips below the calendar
-   via a generated content block on the datePicker wrapper    ── */
-
-/* Container that holds both the input and the calendar popup */
-.campaign-form:not(.legacy-form) .ticket-block .datePicker{
-  position: relative !important;
-}
-
-/* The legend sits as a flex row below the calendar using a
-   sibling div we inject once via the promo script. Pure CSS
-   handles all the visual styling. */
-.mf-cal-legend {
-  display         : inline-flex !important;
-  align-items     : center !important;
-  justify-content : flex-start !important;
-  gap             : 14px !important;
-  flex-wrap       : wrap !important;
-  margin-top      : 8px !important;
-  padding         : 5px 14px 5px 10px !important;
-  border-radius   : 8px !important;
-  background      : rgba(255,255,255,0.85) !important;
-  border          : 1px solid rgba(62,125,95,0.12) !important;
-  font-family     : var(--mf-title-font) !important;
-  font-size       : 11.5px !important;
-  color           : #4a5a52 !important;
-  font-weight     : 500 !important;
-  /* inline-flex means it only takes up as much width as its content */
-}
-
-.mf-cal-legend-item {
-  display         : flex !important;
-  align-items     : center !important;
-  gap             : 5px !important;
-  white-space     : nowrap !important;
-}
-
-.mf-cal-legend-dot {
-  display         : inline-block !important;
-  width           : 11px !important;
-  height          : 11px !important;
-  border-radius   : 50% !important;
-  flex-shrink     : 0 !important;
-}
-
-.mf-cal-legend-dot.farm  { background: #3e7d5f !important; }
-.mf-cal-legend-dot.trip  { background: #d4900a !important; }
-.mf-cal-legend-dot.glean { background: #8b6cc4 !important; }
-
 
 /* =========================================================
-   13) CALENDAR LEGEND + SPACING
-
-   Date colors are applied via JS inline styles (DevTools
-   confirmed cells are <span> with no data-date attribute —
-   TicketSpice app.css must be beaten with inline styles).
+   13) CALENDAR LEGEND STYLES
+   Date colors applied via JS inline styles — confirmed via
+   DevTools that cells are <span> with no data-date attr.
 ========================================================= */
 
-/* ── Space between "Please choose a date" label and date input ── */
+/* Space between "Please choose a date" label and date input */
 .campaign-form:not(.legacy-form) .ticket-block .field-area,
 .campaign-form:not(.legacy-form) .ticket-block .datePicker {
   margin-top: 14px !important;
 }
 
-/* ── Legend row ── */
 .mf-cal-legend {
   display         : inline-flex !important;
   align-items     : center !important;
@@ -1075,20 +976,30 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 }
 
 .mf-cal-legend-item {
-  display         : flex !important;
-  align-items     : center !important;
-  gap             : 5px !important;
-  white-space     : nowrap !important;
+  display     : flex !important;
+  align-items : center !important;
+  gap         : 5px !important;
+  white-space : nowrap !important;
 }
 
 .mf-cal-legend-dot {
-  display         : inline-block !important;
-  width           : 11px !important;
-  height          : 11px !important;
-  border-radius   : 50% !important;
-  flex-shrink     : 0 !important;
+  display       : inline-block !important;
+  width         : 11px !important;
+  height        : 11px !important;
+  border-radius : 50% !important;
+  flex-shrink   : 0 !important;
 }
 
 .mf-cal-legend-dot.farm  { background: #3e7d5f !important; }
 .mf-cal-legend-dot.trip  { background: #d4900a !important; }
 .mf-cal-legend-dot.glean { background: #8b6cc4 !important; }
+
+/* Mother's Day heart icon inside date cell */
+.wbx-calendar span.day .mf-heart {
+  display     : block !important;
+  font-size   : 9px !important;
+  line-height : 1 !important;
+  margin-top  : 1px !important;
+  color       : #e05c8a !important;
+  flex-shrink : 0 !important;
+}
