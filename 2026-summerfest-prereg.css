@@ -4,31 +4,21 @@
    File:   2026-summerfest-prereg.css
    ============================================================ */
 
-/* ---- HIDE TICKETSPICE'S AUTO-GENERATED PAGE TITLE ---- */
-.wbx-page-title,
-.wbx-form-title,
-.formTitle,
-.form-title,
-[class*="pageTitle"],
-[class*="page-title"],
-[class*="PageTitle"] {
+/* ---- HIDE TICKETSPICE'S AUTO-GENERATED "Ticketing Page Not Yet Open" TITLE ---- */
+/* Confirmed selector from live page source: h1[data-testid="status-heading"] */
+h1[data-testid="status-heading"] {
   display: none !important;
 }
 
-/* ---- BUTTON HOVER (can't do :hover inline) ---- */
+/* ---- BUTTON HOVER ---- */
 a.mf-scroll:hover {
   transform: translateY(-3px) !important;
   box-shadow: 0 12px 28px rgba(27, 94, 59, 0.35) !important;
   opacity: 0.93;
 }
 
-/* ---- MOBILE RESPONSIVE ---- */
-@media (max-width: 640px) {
-  .mf-inner h1 {
-    font-size: 26px !important;
-    line-height: 1.15 !important;
-  }
-
+/* ---- MOBILE ---- */
+@media (max-width: 620px) {
   a.mf-scroll {
     display: block !important;
     text-align: center !important;
