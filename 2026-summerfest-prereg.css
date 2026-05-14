@@ -1,1 +1,38 @@
+/* ============================================================
+   Maris Farms — 2026 SummerFest Pre-Registration
+   GitHub: vincesleep/marisfarms-ticketspice-css
+   File:   2026-summerfest-prereg.css
+   ============================================================ */
 
+/* ---- HIDE TICKETSPICE'S AUTO-GENERATED PAGE TITLE ---- */
+.wbx-page-title,
+.wbx-form-title,
+.formTitle,
+.form-title,
+[class*="pageTitle"],
+[class*="page-title"],
+[class*="PageTitle"] {
+  display: none !important;
+}
+
+/* ---- BUTTON HOVER (can't do :hover inline) ---- */
+a.mf-scroll:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 28px rgba(27, 94, 59, 0.35) !important;
+  opacity: 0.93;
+}
+
+/* ---- MOBILE RESPONSIVE ---- */
+@media (max-width: 640px) {
+  .mf-inner h1 {
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+  }
+
+  a.mf-scroll {
+    display: block !important;
+    text-align: center !important;
+    padding: 16px 20px !important;
+    font-size: 17px !important;
+  }
+}
