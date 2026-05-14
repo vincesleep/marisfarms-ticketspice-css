@@ -1,20 +1,136 @@
 /* ============================================================
    Maris Farms — 2026 SummerFest Pre-Registration
+   All styles in one file — loaded via @import in Design Settings
    GitHub: vincesleep/marisfarms-ticketspice-css
-   File:   2026-summerfest-prereg.css
    ============================================================ */
 
-/* ---- HIDE TICKETSPICE'S AUTO-GENERATED "Ticketing Page Not Yet Open" TITLE ---- */
-/* Confirmed selector from live page source: h1[data-testid="status-heading"] */
+/* ---- HIDE TICKETSPICE STATUS HEADING ---- */
 h1[data-testid="status-heading"] {
   display: none !important;
 }
 
-/* ---- BUTTON HOVER ---- */
-a.mf-scroll:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 12px 28px rgba(27, 94, 59, 0.35) !important;
+/* ---- FORM MESSAGE CONTAINER ---- */
+.form-message {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.form-message > p {
+  margin: 8px auto 10px;
+  font-weight: 900;
+  letter-spacing: .02em;
+  color: #2f6f4f;
+}
+.form-message > p:before {
+  content: "🌿 ";
+  font-weight: 700;
+}
+.form-message > p:after {
+  content: " 🌿";
+  font-weight: 700;
+}
+
+/* ---- COUNTDOWN CARD ---- */
+.form-message > h2 {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 10px;
+  align-items: center;
+  margin: 6px auto 18px;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, rgba(228,245,234,.95), #fff);
+  border: 1px solid rgba(74,124,89,.28);
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(2,6,23,.10);
+}
+.form-message > h2 .countdown-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4a7c59, #2f6f4f);
+  color: #fff;
+  font-weight: 900;
+}
+
+/* ---- EMAIL ANCHOR ---- */
+#mf-email {
+  scroll-margin-top: 18px;
+}
+
+/* ---- EMAIL CAPTURE FORM ---- */
+form.registration-closed {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: stretch;
+  justify-content: center;
+  max-width: 720px;
+  margin: 14px auto 0;
+  padding: 16px;
+  background: linear-gradient(180deg, rgba(220,242,226,.98), rgba(220,242,226,.70));
+  border: 2px solid rgba(74,124,89,.35);
+  border-radius: 18px;
+  box-shadow: 0 18px 46px rgba(2,6,23,.14);
+}
+form.registration-closed input[type=email] {
+  flex: 1 1 260px;
+  height: 56px;
+  border: 2px solid rgba(74,124,89,.30);
+  border-radius: 14px;
+  padding: 0 14px;
+  font-size: 16px;
+  background: #fff;
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+form.registration-closed input[type=email]::placeholder {
+  color: rgba(15,23,42,.45);
+}
+form.registration-closed input[type=email]:focus {
+  outline: 0;
+  border-color: rgba(74,124,89,.95);
+  box-shadow: 0 0 0 7px rgba(74,124,89,.20);
+}
+form.registration-closed button.btn-primary {
+  flex: 1 1 220px;
+  height: 56px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #4a7c59, #2f6f4f);
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+form.registration-closed input[type=email].mf-prereg-pulse {
+  border-color: rgba(74,124,89,.95) !important;
+  box-shadow: 0 0 0 9px rgba(74,124,89,.22) !important;
+}
+
+/* ---- SCROLL BUTTON ---- */
+.mf-btn.mf-scroll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 18px;
+  border-radius: 14px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #4a7c59, #2f6f4f);
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+.mf-btn.mf-scroll:hover {
   opacity: 0.93;
+  transform: translateY(-2px);
+}
+.mf-btn.mf-scroll:active {
+  transform: translateY(1px);
 }
 
 /* ---- MOBILE ---- */
