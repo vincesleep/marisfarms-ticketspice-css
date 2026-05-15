@@ -1,0 +1,538 @@
+/* =========================================================
+   MARIS FARMS / TICKETSPICE
+   2026 Annual and Season Passes  Full Custom CSS
+   Matches the Baby Animals & Blooms look and feel
+   - Fredoka typography
+   - Title + brush stroke underline treatment
+   - Green-gradient ticket table
+   - White ticket card rows
+   - Section headings (Billing, etc.)
+   - Mobile fixes
+   Notes:
+   - This page has no date picker or calendar, so all
+     calendar/datepicker rules are intentionally omitted.
+   - Promo badge and price slash visuals live in the
+     inline HTML script on the page itself (mf-sf- prefix).
+========================================================= */
+
+
+/* =========================================================
+   0) TOP HEADER CLEANUP
+========================================================= */
+.form-header-wrap{
+  position: relative !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+.form-header-wrap::before,
+.form-header-wrap::after{
+  content: none !important;
+  display: none !important;
+}
+
+.form-header-wrap .form-nav-header{
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.form-header-wrap .form-header{
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 18px 0 22px !important;
+  border-radius: 0 !important;
+}
+
+.form-header-wrap .holds-image{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.form-header-wrap .holds-image img{
+  max-width: 260px !important;
+  height: auto !important;
+  filter: none !important;
+}
+
+.preview-frame .preview-frame__top-bar{
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.preview-frame .preview-frame__message{
+  background: #3e7d5f !important;
+}
+
+
+/* =========================================================
+   1) TITLES / HEADINGS
+   Font: Fredoka (matches BAB)
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+:root{
+  --mf-title-font: "Fredoka", fatfrank, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", -apple-system, sans-serif;
+  --mf-title-color: #3e3e3e;
+  --mf-title-size: 48px;
+  --mf-title-line-color: #3e7d5f;
+}
+
+/* Center the wrapper */
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align,
+.campaign-form:not(.legacy-form) .field-textHeading.registrant-field .label-align.form-width{
+  text-align: center !important;
+}
+
+/* Title text */
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p,
+.campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center{
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto 36px !important;
+  padding: 0 !important;
+  position: relative !important;
+  font-family: var(--mf-title-font) !important;
+  font-size: var(--mf-title-size) !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0 !important;
+  color: var(--mf-title-color) !important;
+  text-align: center !important;
+  background: none !important;
+  text-shadow: none !important;
+}
+
+/* Carry font through any nested strong/span TicketSpice wraps */
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong,
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong span,
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong span span{
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  font-family: var(--mf-title-font) !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  font-style: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  color: inherit !important;
+  text-shadow: none !important;
+}
+
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* Brush stroke underline (same as BAB) */
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::after,
+.campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center::after{
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: -22px !important;
+  transform: translateX(-50%) !important;
+  width: 260px !important;
+  height: 18px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 380 22' fill='none'%3E%3Cpath d='M2 14 C 30 7, 70 17, 120 12 C 165 7, 210 16, 260 11 C 300 7, 340 15, 370 10 C 374 9.5, 377 9, 378 9' stroke='%233e7d5f' stroke-width='7' stroke-linecap='round' stroke-linejoin='round' opacity='0.82'/%3E%3Cpath d='M2 15.5 C 30 9, 70 18, 120 13.5 C 165 9, 210 17, 260 13 C 300 9.5, 340 16, 368 12 C 372 11.5, 375 11, 377 11' stroke='%233e7d5f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='0.35'/%3E%3Cpath d='M180 10 C 210 8, 250 13, 290 10 C 320 8, 350 12, 372 9' stroke='%233e7d5f' stroke-width='1.5' stroke-linecap='round' opacity='0.2'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::before{
+  content: none !important;
+  display: none !important;
+}
+
+
+/* =========================================================
+   2) TICKET AREA WRAPPER
+========================================================= */
+.campaign-form:not(.legacy-form) .ticket-block{
+  background: transparent !important;
+}
+
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets{
+  border-collapse: separate !important;
+  border-spacing: 0 14px !important;
+  width: 100% !important;
+  background: linear-gradient(180deg, rgba(62,125,95,0.82), rgba(62,125,95,0.72)) !important;
+  border-radius: 22px !important;
+  padding: 14px !important;
+  border: none !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,.10) !important;
+  overflow: visible !important;
+}
+
+
+/* =========================================================
+   3) TICKET HEADER ROW (Tickets / Price)
+========================================================= */
+table.holds-tickets thead tr:first-child th{
+  background: linear-gradient(180deg, rgba(62,125,95,0.96), rgba(56,116,88,0.92)) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+  padding: 18px 18px !important;
+  font-weight: 800 !important;
+  font-family: var(--mf-title-font) !important;
+  box-shadow: none !important;
+  vertical-align: top !important;
+}
+
+table.holds-tickets thead tr:first-child th.description{
+  border-radius: 16px 0 0 16px !important;
+  border-right: 0 !important;
+}
+
+table.holds-tickets thead tr:first-child th.cost{
+  border-radius: 0 16px 16px 0 !important;
+  border-left: 0 !important;
+  position: relative !important;
+}
+
+table.holds-tickets thead tr:first-child th.cost::before{
+  content: "" !important;
+  position: absolute !important;
+  left: -1px !important;
+  top: 12px !important;
+  bottom: 12px !important;
+  width: 1px !important;
+  background: rgba(255,255,255,0.18) !important;
+}
+
+
+/* =========================================================
+   4) TICKET ROW CARDS
+========================================================= */
+.ticket-block tr.ticket-type td.description,
+.ticket-block table.holds-tickets .price-info-wrapper{
+  background: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: none !important;
+  padding: 16px 16px !important;
+}
+
+.ticket-block tr.ticket-type td.description{
+  border-right: 0 !important;
+  border-radius: 16px 0 0 16px !important;
+}
+
+.ticket-block table.holds-tickets .price-info-wrapper{
+  border-left: 0 !important;
+  border-radius: 0 16px 16px 0 !important;
+  position: relative !important;
+}
+
+.ticket-block table.holds-tickets .price-info-wrapper::before{
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 16px !important;
+  bottom: 16px !important;
+  width: 1px !important;
+  background: rgba(0,0,0,0.06) !important;
+}
+
+.ticket-block tr.ticket-type:hover td.description,
+.ticket-block tr.ticket-type:hover td.price-info-wrapper{
+  border-color: rgba(62,125,95,0.18) !important;
+  box-shadow: none !important;
+}
+
+.ticket-block tr.ticket-type td.description h4{
+  color: #2f3a35 !important;
+  font-weight: 600 !important;
+  font-family: var(--mf-title-font) !important;
+  font-size: 16px !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* All ticket description body text */
+.ticket-block tr.ticket-type td.description,
+.ticket-block tr.ticket-type td.description p,
+.ticket-block tr.ticket-type td.description div,
+.ticket-block tr.ticket-type td.description span,
+.ticket-block tr.ticket-type td.description li{
+  font-family: var(--mf-title-font) !important;
+}
+
+.ticket-block tr.ticket-type td.description p{
+  color: rgba(0,0,0,0.58) !important;
+  font-weight: 400 !important;
+  font-size: 13px !important;
+}
+
+.ticket-block table.holds-tickets .cost-fee-info-wrapper .cost-fee-wrapper .ticket-cost{
+  color: #3e7d5f !important;
+  font-weight: 600 !important;
+  font-family: var(--mf-title-font) !important;
+  font-size: 17px !important;
+  letter-spacing: 0 !important;
+}
+
+/* Consistent price sizing across ticket types */
+.ticket-block tr.ticket-type td.price-info-wrapper,
+.ticket-block tr.ticket-type td.price-info-wrapper *{
+  font-family: var(--mf-title-font) !important;
+}
+.ticket-block tr.ticket-type td.price-info-wrapper .ticket-cost,
+.ticket-block tr.ticket-type td.price-info-wrapper .cost,
+.ticket-block tr.ticket-type td.price-info-wrapper [class*="ticket-cost"],
+.ticket-block tr.ticket-type td.price-info-wrapper [class*="price"]{
+  font-size   : 17px !important;
+  font-weight : 600 !important;
+  color       : #3e7d5f !important;
+}
+.ticket-block tr.ticket-type td.price-info-wrapper > div > .ticket-cost,
+.ticket-block tr.ticket-type td.price-info-wrapper .price-display,
+.ticket-block tr.ticket-type td.price-info-wrapper strong{
+  font-family : var(--mf-title-font) !important;
+  font-size   : 17px !important;
+  font-weight : 600 !important;
+  color       : #3e7d5f !important;
+}
+
+.ticket-block table.holds-tickets .ticket-fee{
+  color: rgba(0,0,0,0.40) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  font-family: var(--mf-title-font) !important;
+}
+
+.ticket-block tr.ticket-type td.price-info-wrapper .price-note,
+.ticket-block tr.ticket-type td.price-info-wrapper .availability-note,
+.ticket-block tr.ticket-type td.price-info-wrapper small{
+  font-family : var(--mf-title-font) !important;
+  font-size   : 12px !important;
+  color       : rgba(0,0,0,0.42) !important;
+}
+
+.campaign-form:not(.legacy-form) .ticket-block select{
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  color: #3e7d5f !important;
+  border: 1px solid rgba(62,125,95,0.28) !important;
+  border-radius: 12px !important;
+  background-color: #ffffff !important;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' fill='none'><path d='M5 7.5L10 12.5L15 7.5' stroke='%233e7d5f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  background-size: 16px 16px !important;
+  box-shadow: none !important;
+  padding: 10px 38px 10px 14px !important;
+  font-weight: 600 !important;
+  font-family: var(--mf-title-font) !important;
+  cursor: pointer !important;
+}
+
+.campaign-form:not(.legacy-form) .ticket-block select option{
+  color: #2f3a35 !important;
+  background: #ffffff !important;
+  font-family: var(--mf-title-font) !important;
+  font-weight: 400 !important;
+}
+
+
+/* =========================================================
+   5) BUTTONS
+========================================================= */
+.campaign-form:not(.legacy-form) .btn-danger,
+.campaign-form:not(.legacy-form) .btn-primary,
+.campaign-form:not(.legacy-form) .btn:not(.btn--transparent):not(.btn--plus):not(.btn--minus):not(.btn--home):not(.btn--tooltipstered):not(.btn--blue){
+  font-family: var(--mf-title-font) !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  color: white !important;
+  border-radius: 10px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  text-transform: uppercase !important;
+}
+
+
+/* =========================================================
+   6) DIVIDER + TOTAL
+========================================================= */
+.ticket-block tr.ticket-level-divider td{
+  background: transparent !important;
+}
+
+.ticket-block tr.ticket-level-divider td hr{
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.28) !important;
+  opacity: 1 !important;
+  margin: 2px 12px 0 !important;
+}
+
+.ticket-block table.holds-tickets tfoot tr.total td{
+  background: transparent !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  font-size: 18px !important;
+  font-family: var(--mf-title-font) !important;
+  border: 0 !important;
+  padding: 12px 10px 2px !important;
+  text-align: right !important;
+  text-shadow: none !important;
+}
+
+
+/* =========================================================
+   7) SECTION HEADINGS (Tickets, Billing, etc.)
+========================================================= */
+table.holds-tickets thead tr:first-child th{
+  font-family: var(--mf-title-font) !important;
+  font-size  : 18px !important;
+  font-weight: 600 !important;
+}
+
+.campaign-form:not(.legacy-form) .billing-wrap h1,
+.campaign-form:not(.legacy-form) .billing-section h1,
+.campaign-form:not(.legacy-form) h1.billing-title,
+.campaign-form:not(.legacy-form) .field-textHeading.billing-field h1,
+.campaign-form:not(.legacy-form) .registrant-header h1,
+.campaign-form:not(.legacy-form) .registrant-section > h1,
+.campaign-form:not(.legacy-form) .billing h2{
+  font-family   : var(--mf-title-font) !important;
+  font-size     : 26px !important;
+  font-weight   : 600 !important;
+  color         : var(--mf-title-color) !important;
+  letter-spacing: 0 !important;
+  text-align    : center !important;
+  margin-bottom : 20px !important;
+}
+
+.campaign-form:not(.legacy-form) h1:not(.text-center){
+  font-family: var(--mf-title-font) !important;
+  font-size  : 26px !important;
+  font-weight: 600 !important;
+  color      : var(--mf-title-color) !important;
+}
+
+.campaign-form:not(.legacy-form) .section-header,
+.campaign-form:not(.legacy-form) .terms-header,
+.campaign-form:not(.legacy-form) h2.section-title,
+.campaign-form:not(.legacy-form) h3.section-title,
+.campaign-form:not(.legacy-form) .purchase-protection-header{
+  font-family: var(--mf-title-font) !important;
+  font-size  : 20px !important;
+  font-weight: 600 !important;
+  color      : var(--mf-title-color) !important;
+}
+
+/* Form labels throughout billing section */
+.campaign-form:not(.legacy-form) .field-label,
+.campaign-form:not(.legacy-form) label{
+  font-family: var(--mf-title-font) !important;
+}
+
+
+/* =========================================================
+   8) MOBILE FIXES
+========================================================= */
+@media (max-width: 768px){
+
+  .campaign-form:not(.legacy-form) .ticket-block table.holds-tickets{
+    border-spacing: 0 12px !important;
+    border-radius: 18px !important;
+    padding: 10px !important;
+  }
+
+  table.holds-tickets thead{
+    display: table-header-group !important;
+  }
+
+  table.holds-tickets thead tr:first-child{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  table.holds-tickets thead tr:first-child th.description,
+  table.holds-tickets thead tr:first-child th.cost{
+    display: block !important;
+    width: 100% !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255,255,255,0.16) !important;
+    box-sizing: border-box !important;
+  }
+
+  table.holds-tickets thead tr:first-child th.description{
+    border-right: 1px solid rgba(255,255,255,0.16) !important;
+    position: relative !important;
+  }
+
+  table.holds-tickets thead tr:first-child th.cost{
+    border-left: 1px solid rgba(255,255,255,0.16) !important;
+  }
+
+  table.holds-tickets thead tr:first-child th.cost::before{
+    display: none !important;
+  }
+
+  .ticket-block tr.ticket-type td.description,
+  .ticket-block tr.ticket-type td.price-info-wrapper{
+    display: block !important;
+    width: 100% !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(0,0,0,0.06) !important;
+    box-shadow: none !important;
+  }
+
+  .ticket-block table.holds-tickets .price-info-wrapper::before{
+    display: none !important;
+  }
+
+  .ticket-block tr.ticket-type td.description{
+    border-right: 1px solid rgba(0,0,0,0.06) !important;
+  }
+
+  .ticket-block tr.ticket-type td.price-info-wrapper{
+    border-left: 1px solid rgba(0,0,0,0.06) !important;
+    margin-top: 8px !important;
+  }
+
+  /* Mobile title sizing */
+  .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p,
+  .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center{
+    font-size: 30px !important;
+    margin: 0 auto 32px !important;
+  }
+
+  /* Brush stroke underline scale down */
+  .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::after,
+  .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center::after{
+    width: 160px !important;
+    height: 14px !important;
+    bottom: -18px !important;
+  }
+}
+
+
+/* =========================================================
+   9) OVERFLOW SAFETY
+========================================================= */
+.campaign-form:not(.legacy-form) .ticket-block,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets thead,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets thead tr,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets thead th,
+.campaign-form:not(.legacy-form) .ticket-block .field-area{
+  overflow: visible !important;
+}
