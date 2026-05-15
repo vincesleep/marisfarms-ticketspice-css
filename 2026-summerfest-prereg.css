@@ -1,144 +1,319 @@
 /* ============================================================
-   Maris Farms — 2026 SummerFest Pre-Registration
-   All styles in one file — loaded via @import in Design Settings
-   GitHub: vincesleep/marisfarms-ticketspice-css
+   MARIS FARMS — 2026 Summer Festival Pre-Registration
+   Design Settings → Custom CSS
+   Brand palette: Forest green #1b5e3b · Sunflower gold #f6c833
+                  Harvest orange #f4a03a · Cream #fffce8
    ============================================================ */
+
+/* Nunito loaded via @font-face — works at any position in the stylesheet
+   unlike @import which browsers ignore unless it's the very first rule */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://unpkg.com/@fontsource/nunito/files/nunito-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://unpkg.com/@fontsource/nunito/files/nunito-latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('https://unpkg.com/@fontsource/nunito/files/nunito-latin-900-normal.woff2') format('woff2');
+}
+
+/* Force Nunito on all text inside our pre-reg content */
+.form-message .fr-view h1,
+.form-message .fr-view h2,
+.form-message .fr-view p,
+.form-message .fr-view a,
+.form-message .fr-view div,
+.form-message .fr-view span {
+  font-family: 'Nunito', Arial, sans-serif !important;
+}
+
+/* Specifically lock down the headline at 900 weight */
+.form-message .fr-view h1 {
+  font-weight: 900 !important;
+  font-size: 30px !important;
+  color: #1b5e3b !important;
+  line-height: 1.15 !important;
+}
+
+
+/* Countdown when injected into top of card via JS */
+#mf-card-top > p {
+  font-family: 'Nunito', Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #2d8c5e !important;
+  margin: 0 0 8px !important;
+}
+#mf-card-top > h2 {
+  display: inline-flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px 10px !important;
+  margin: 0 auto 4px !important;
+  padding: 14px 24px !important;
+  background: linear-gradient(150deg, #1e6b41 0%, #143d27 100%) !important;
+  border: 2px solid #f6c833 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 3px 0 rgba(246,200,51,0.45), 0 10px 28px rgba(27,94,59,0.22) !important;
+  font-family: 'Nunito', Arial, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,0.88) !important;
+}
+#mf-card-top > h2 .countdown-number {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 44px !important;
+  padding: 5px 11px !important;
+  border-radius: 9px !important;
+  background: linear-gradient(150deg, #f6c833 0%, #f0b820 100%) !important;
+  color: #1b3d26 !important;
+  font-family: 'Nunito', Arial, sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+}
 
 /* ---- HIDE TICKETSPICE STATUS HEADING ---- */
 h1[data-testid="status-heading"] {
   display: none !important;
 }
 
-/* ---- FORM MESSAGE CONTAINER ---- */
+
+/* ---- FIX STRONG/BOLD OVERRIDE FROM TICKETSPICE ---- */
+.fr-view strong,
+.fr-view b {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+
+/* ============================================================
+   FORM MESSAGE WRAPPER
+   ============================================================ */
 .form-message {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 680px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  padding: 0 16px !important;
 }
+
+
+/* ============================================================
+   "TICKETS GO ON SALE IN" HEADING
+   ============================================================ */
 .form-message > p {
-  margin: 8px auto 10px;
-  font-weight: 900;
-  letter-spacing: .02em;
-  color: #2f6f4f;
+  font-family: 'Nunito', Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #2d8c5e !important;
+  margin: 22px 0 10px !important;
+  text-decoration: none !important;
 }
-.form-message > p:before {
-  content: "🌿 ";
-  font-weight: 700;
-}
-.form-message > p:after {
-  content: " 🌿";
-  font-weight: 700;
-}
+.form-message > p:before { content: "" !important; }
+.form-message > p:after  { content: "" !important; }
 
-/* ---- COUNTDOWN CARD ---- */
+
+/* ============================================================
+   COUNTDOWN CARD
+   Dark green card · Sunflower gold badges · White labels
+   Cohesive with the top stripe on the pre-reg card above
+   ============================================================ */
 .form-message > h2 {
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 10px;
-  align-items: center;
-  margin: 6px auto 18px;
-  padding: 12px 14px;
-  background: linear-gradient(180deg, rgba(228,245,234,.95), #fff);
-  border: 1px solid rgba(74,124,89,.28);
-  border-radius: 18px;
-  box-shadow: 0 12px 32px rgba(2,6,23,.10);
+  display: inline-flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px 10px !important;
+  margin: 0 auto 22px !important;
+  padding: 16px 26px !important;
+  background: linear-gradient(150deg, #1e6b41 0%, #143d27 100%) !important;
+  border: 2px solid #f6c833 !important;
+  border-radius: 20px !important;
+  box-shadow:
+    0 3px 0 rgba(246, 200, 51, 0.45),
+    0 12px 32px rgba(27, 94, 59, 0.28) !important;
+  font-family: 'Nunito', Arial, sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  letter-spacing: 0.01em !important;
 }
+
+/* Sunflower gold number badges */
 .form-message > h2 .countdown-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #4a7c59, #2f6f4f);
-  color: #fff;
-  font-weight: 900;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 46px !important;
+  padding: 6px 12px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(150deg, #f6c833 0%, #f0b820 100%) !important;
+  color: #1b3d26 !important;
+  font-family: 'Nunito', Arial, sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.01em !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.25) !important;
 }
 
-/* ---- EMAIL ANCHOR ---- */
+
+/* ============================================================
+   EMAIL CAPTURE FORM
+   Matches the card's green palette with a warm green tint
+   ============================================================ */
 #mf-email {
-  scroll-margin-top: 18px;
+  scroll-margin-top: 18px !important;
 }
 
-/* ---- EMAIL CAPTURE FORM ---- */
 form.registration-closed {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: stretch;
-  justify-content: center;
-  max-width: 720px;
-  margin: 14px auto 0;
-  padding: 16px;
-  background: linear-gradient(180deg, rgba(220,242,226,.98), rgba(220,242,226,.70));
-  border: 2px solid rgba(74,124,89,.35);
-  border-radius: 18px;
-  box-shadow: 0 18px 46px rgba(2,6,23,.14);
-}
-form.registration-closed input[type=email] {
-  flex: 1 1 260px;
-  height: 56px;
-  border: 2px solid rgba(74,124,89,.30);
-  border-radius: 14px;
-  padding: 0 14px;
-  font-size: 16px;
-  background: #fff;
-  transition: box-shadow .18s ease, border-color .18s ease;
-}
-form.registration-closed input[type=email]::placeholder {
-  color: rgba(15,23,42,.45);
-}
-form.registration-closed input[type=email]:focus {
-  outline: 0;
-  border-color: rgba(74,124,89,.95);
-  box-shadow: 0 0 0 7px rgba(74,124,89,.20);
-}
-form.registration-closed button.btn-primary {
-  flex: 1 1 220px;
-  height: 56px;
-  padding: 0 18px;
-  border: 0;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #4a7c59, #2f6f4f);
-  color: #fff;
-  font-weight: 900;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-}
-form.registration-closed input[type=email].mf-prereg-pulse {
-  border-color: rgba(74,124,89,.95) !important;
-  box-shadow: 0 0 0 9px rgba(74,124,89,.22) !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  max-width: 580px !important;
+  margin: 8px auto 0 !important;
+  padding: 20px !important;
+  background: linear-gradient(150deg, #eef7f2 0%, #ddf0e6 100%) !important;
+  border: 1.5px solid rgba(27, 94, 59, 0.2) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 3px 0 rgba(246,200,51,0.25), 0 10px 28px rgba(27,94,59,0.09) !important;
 }
 
-/* ---- SCROLL BUTTON ---- */
+form.registration-closed input[type=email] {
+  flex: 1 1 220px !important;
+  height: 50px !important;
+  border: 1.5px solid rgba(27, 94, 59, 0.25) !important;
+  border-radius: 12px !important;
+  padding: 0 14px !important;
+  font-family: 'Nunito', Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  background: #ffffff !important;
+  color: #1b3d26 !important;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
+}
+
+form.registration-closed input[type=email]::placeholder {
+  color: rgba(27, 94, 59, 0.38) !important;
+  font-weight: 400 !important;
+}
+
+form.registration-closed input[type=email]:focus {
+  outline: 0 !important;
+  border-color: #2d8c5e !important;
+  box-shadow: 0 0 0 4px rgba(27,94,59,0.12) !important;
+}
+
+form.registration-closed button.btn-primary {
+  flex: 1 1 160px !important;
+  height: 50px !important;
+  padding: 0 22px !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  background: linear-gradient(150deg, #2d8c5e 0%, #1b5e3b 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Nunito', Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 12px rgba(27,94,59,0.28) !important;
+}
+
+form.registration-closed button.btn-primary:hover {
+  background: linear-gradient(150deg, #35a06d 0%, #1e6b41 100%) !important;
+}
+
+/* "Be the first to know" helper text */
+.form-message > div > p {
+  font-family: 'Nunito', Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #5a7a68 !important;
+  margin: 10px 0 0 !important;
+}
+
+
+/* ============================================================
+   SCROLL BUTTON (inside our HTML block)
+   ============================================================ */
 .mf-btn.mf-scroll {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 0 18px;
-  border-radius: 14px;
-  text-decoration: none;
-  background: linear-gradient(135deg, #4a7c59, #2f6f4f);
-  color: #fff;
-  font-weight: 900;
-  letter-spacing: .02em;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 48px !important;
+  padding: 0 30px !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
+  background: linear-gradient(150deg, #2d8c5e 0%, #1b5e3b 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Nunito', Arial, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  box-shadow: 0 4px 14px rgba(27,94,59,0.30) !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
 }
 .mf-btn.mf-scroll:hover {
-  opacity: 0.93;
-  transform: translateY(-2px);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(27,94,59,0.32) !important;
 }
 .mf-btn.mf-scroll:active {
-  transform: translateY(1px);
+  transform: translateY(1px) !important;
 }
 
-/* ---- MOBILE ---- */
-@media (max-width: 620px) {
-  a.mf-scroll {
-    display: block !important;
-    text-align: center !important;
-    padding: 16px 20px !important;
-    font-size: 17px !important;
+
+/* ============================================================
+   EMAIL FORM PULSE ANIMATION
+   Gold ring matches the countdown card border
+   ============================================================ */
+@keyframes mf-pulse-form {
+  0%   { box-shadow: 0 3px 0 rgba(246,200,51,0.25), 0 10px 28px rgba(27,94,59,0.09); }
+  45%  { box-shadow: 0 0 0 8px rgba(246,200,51,0.40), 0 10px 28px rgba(27,94,59,0.09); }
+  100% { box-shadow: 0 3px 0 rgba(246,200,51,0.25), 0 10px 28px rgba(27,94,59,0.09); }
+}
+.mf-pulse-active {
+  animation: mf-pulse-form 0.85s ease forwards !important;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 600px) {
+  .form-message > h2 {
+    padding: 14px 16px !important;
+    font-size: 14px !important;
+    gap: 5px 8px !important;
+  }
+  .form-message > h2 .countdown-number {
+    min-width: 38px !important;
+    font-size: 20px !important;
+    padding: 5px 9px !important;
+  }
+  form.registration-closed input[type=email],
+  form.registration-closed button.btn-primary {
+    flex: 1 1 100% !important;
   }
 }
