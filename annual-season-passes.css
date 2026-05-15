@@ -182,8 +182,12 @@
 
 /* =========================================================
    3) TICKET HEADER ROW (Tickets / Price)
+   Note: this page's th elements live in tbody, not thead,
+   so we target th directly with higher specificity to beat
+   the page's existing cream-background rule.
 ========================================================= */
-table.holds-tickets thead tr:first-child th{
+.app-container .ticket-block table.holds-tickets th,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets th{
   background: linear-gradient(180deg, rgba(62,125,95,0.96), rgba(56,116,88,0.92)) !important;
   color: #ffffff !important;
   border: 1px solid rgba(255,255,255,0.14) !important;
@@ -194,18 +198,21 @@ table.holds-tickets thead tr:first-child th{
   vertical-align: top !important;
 }
 
-table.holds-tickets thead tr:first-child th.description{
+.app-container .ticket-block table.holds-tickets th.description,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets th.description{
   border-radius: 16px 0 0 16px !important;
   border-right: 0 !important;
 }
 
-table.holds-tickets thead tr:first-child th.cost{
+.app-container .ticket-block table.holds-tickets th.cost,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets th.cost{
   border-radius: 0 16px 16px 0 !important;
   border-left: 0 !important;
   position: relative !important;
 }
 
-table.holds-tickets thead tr:first-child th.cost::before{
+.app-container .ticket-block table.holds-tickets th.cost::before,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets th.cost::before{
   content: "" !important;
   position: absolute !important;
   left: -1px !important;
@@ -396,7 +403,8 @@ table.holds-tickets thead tr:first-child th.cost::before{
 /* =========================================================
    7) SECTION HEADINGS (Tickets, Billing, etc.)
 ========================================================= */
-table.holds-tickets thead tr:first-child th{
+.app-container .ticket-block table.holds-tickets th,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets th{
   font-family: var(--mf-title-font) !important;
   font-size  : 18px !important;
   font-weight: 600 !important;
@@ -454,18 +462,14 @@ table.holds-tickets thead tr:first-child th{
     padding: 10px !important;
   }
 
-  table.holds-tickets thead{
-    display: table-header-group !important;
-  }
-
-  table.holds-tickets thead tr:first-child{
+  .ticket-block table.holds-tickets tbody tr:has(th){
     display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 10px !important;
   }
 
-  table.holds-tickets thead tr:first-child th.description,
-  table.holds-tickets thead tr:first-child th.cost{
+  .ticket-block table.holds-tickets th.description,
+  .ticket-block table.holds-tickets th.cost{
     display: block !important;
     width: 100% !important;
     border-radius: 14px !important;
@@ -473,16 +477,16 @@ table.holds-tickets thead tr:first-child th{
     box-sizing: border-box !important;
   }
 
-  table.holds-tickets thead tr:first-child th.description{
+  .ticket-block table.holds-tickets th.description{
     border-right: 1px solid rgba(255,255,255,0.16) !important;
     position: relative !important;
   }
 
-  table.holds-tickets thead tr:first-child th.cost{
+  .ticket-block table.holds-tickets th.cost{
     border-left: 1px solid rgba(255,255,255,0.16) !important;
   }
 
-  table.holds-tickets thead tr:first-child th.cost::before{
+  .ticket-block table.holds-tickets th.cost::before{
     display: none !important;
   }
 
@@ -530,9 +534,9 @@ table.holds-tickets thead tr:first-child th{
 ========================================================= */
 .campaign-form:not(.legacy-form) .ticket-block,
 .campaign-form:not(.legacy-form) .ticket-block table.holds-tickets,
-.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets thead,
-.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets thead tr,
-.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets thead th,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets tbody,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets tr,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets th,
 .campaign-form:not(.legacy-form) .ticket-block .field-area{
   overflow: visible !important;
 }
