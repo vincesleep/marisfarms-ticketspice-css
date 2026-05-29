@@ -2234,26 +2234,28 @@ form.registration-closed input[type=email].mf-prereg-pulse{
   }
 }
 
-/* ---- (3) MOBILE ONLY - Pills as top-left corner ribbons on the ticket card ---- */
-/* Both the Sale badge and the Optional pill absolute-position to the top-left
-   of td.description, sitting above the ticket image + title. Desktop unchanged. */
+/* ---- (3) MOBILE ONLY - Pills as top-left corner ribbons ---- */
+/* CRITICAL: on desktop .mf-sf-title-wrap has position: relative, which would
+   make the badge's "top: 10px" measure from the title-wrap (and overlap the title).
+   We neutralize that here so the badge measures from td.description instead. */
 @media (max-width: 768px){
 
-  /* Make the description cell the positioning context AND reserve room
-     at the top for the corner pill to sit above image + title. */
+  /* Description cell becomes the positioning context + reserve corner space */
   .ticket-block tr.ticket-type td.description{
     position: relative !important;
-    padding-top: 42px !important;
+    padding-top: 44px !important;
   }
 
-  /* Title-wrap loses its desktop margin so it doesn't push title down further */
+  /* Strip ALL positioning from the title-wrap so the badge floats to the cell corner */
   .ticket-block tr.ticket-type td.description .mf-sf-title-wrap{
+    position: static !important;
     display: block !important;
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
   }
 
-  /* Sale badge: absolute, top-left corner of the cell */
+  /* Sale badge: top-left corner of the description cell */
   .ticket-block tr.ticket-type td.description .mf-sf-badge{
     position: absolute !important;
     top: 10px !important;
@@ -2271,22 +2273,51 @@ form.registration-closed input[type=email].mf-prereg-pulse{
     line-height: 1 !important;
   }
 
-  /* Optional pill: absolute, top-left corner of the cell */
-  .ticket-block tr.ticket-type td.description h4 .mf-optional-label{
+  /* --- UNIFY THE OPTIONAL PILL ---
+     Picnic (Admission tbody) gets a JS-injected <span.mf-optional-label>.
+     Mini Photo Sessions (Add-On tbody) was getting a CSS ::after instead because
+     the script could race on that row. On mobile we want both to look identical
+     and sit at the top-left corner.
+
+     We:
+       a) Disable the ::after pseudo (we'll let the JS-injected span show instead)
+       b) Force the JS-injected span to be visible across ALL tbodies
+       c) Absolute-position the span to the top-left corner
+  */
+
+  /* (a) Kill the ::after fallback so it doesn't double up or look different */
+  .ticket-block table.holds-tickets tbody tr.ticket-type td.description h4::after,
+  .ticket-block table.holds-tickets tbody tr.ticket-type td.description div h4::after,
+  .ticket-block table.holds-tickets tbody:not(:first-of-type) tr.ticket-type td.description h4::after,
+  .ticket-block table.holds-tickets tbody:not(:first-of-type) tr.ticket-type td.description div h4::after{
+    content: none !important;
+    display: none !important;
+  }
+
+  /* (b) Show the JS-injected span on ALL tbodies (overrides Round 10 hide rule) */
+  .ticket-block table.holds-tickets tbody tr.ticket-type .mf-optional-label,
+  .ticket-block table.holds-tickets tbody:not(:first-of-type) tr.ticket-type .mf-optional-label{
+    display: inline-block !important;
+  }
+
+  /* (c) Position the pill at top-left corner of the description cell */
+  .ticket-block tr.ticket-type td.description .mf-optional-label{
     position: absolute !important;
     top: 12px !important;
     left: 12px !important;
+    right: auto !important;
+    bottom: auto !important;
     margin: 0 !important;
     z-index: 5 !important;
-    display: inline-block !important;
     font-size: 10px !important;
     padding: 3px 9px !important;
     letter-spacing: 0.04em !important;
     line-height: 1.1 !important;
     vertical-align: baseline !important;
+    white-space: nowrap !important;
   }
 
-  /* The h4 doesn't need extra line-height bumping anymore since the pill broke out */
+  /* Tighter title line-height now that the pill isn't inline anymore */
   .ticket-block tr.ticket-type td.description h4{
     line-height: 1.25 !important;
   }
