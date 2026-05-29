@@ -2182,3 +2182,83 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 .ticket-block table.holds-tickets tbody:not(:first-of-type) tr.ticket-type .mf-optional-label{
   display: none !important;
 }
+
+
+/* =========================================================
+   22) ROUND 12 - MOBILE POLISH
+   1) Themed-weekend tiles + Jenny/Gene + Photo Sessions cards: same visual rhythm
+   2) Optional pill wraps cleanly on mobile (sits below title, looks intentional)
+   3) Sale badge sits at the TOP of the ticket card (inline) on mobile, not floating
+========================================================= */
+
+/* ---- (1) Card alignment consistency: match tile + highlight-card backgrounds & padding ---- */
+.mf-ts-sumR .mf-tile,
+.mf-ts-sumR .mf-highlight-card{
+  background: rgba(255,255,255,.92) !important;
+  border: 1px solid rgba(27,94,59,.18) !important;
+  border-radius: 12px !important;
+  padding: 13px 16px !important;
+  gap: 12px !important;
+  align-items: center !important;
+  min-height: 60px !important;
+}
+.mf-ts-sumR .mf-highlight-card.mf-highlight-photo{
+  background: rgba(255,250,242,.95) !important;
+  border-color: rgba(244,160,58,.32) !important;
+}
+/* Match the icon/emoji column width across both card types so titles align */
+.mf-ts-sumR .mf-tile,
+.mf-ts-sumR .mf-highlight-card{
+  grid-template-columns: 36px minmax(0, 1fr) !important;
+}
+.mf-ts-sumR .mf-highlight-icon{
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 22px !important;
+}
+
+/* ---- (2) Optional pill: clean wrap on mobile, sits below title intentionally ---- */
+@media (max-width: 768px){
+  /* Let the pill be a block on a new line under the title text */
+  .ticket-block tr.ticket-type td.description h4{
+    line-height: 1.3 !important;
+  }
+  .ticket-block tr.ticket-type td.description h4 .mf-optional-label{
+    display: inline-block !important;
+    margin-left: 0 !important;
+    margin-top: 6px !important;
+    font-size: 10px !important;
+    padding: 2px 8px !important;
+    letter-spacing: 0.04em !important;
+    vertical-align: middle !important;
+  }
+}
+
+/* ---- (3) Sale badge: TOP of the ticket card on mobile (inline, not absolute) ---- */
+@media (max-width: 768px){
+  /* Reset the absolute positioning so the badge flows above the title naturally */
+  .mf-sf-title-wrap{
+    display: block !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  .mf-sf-badge{
+    position: static !important;
+    display: inline-flex !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 0 10px 0 !important;
+    font-size: 12px !important;
+    padding: 5px 12px !important;
+    min-height: 26px !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+    /* Slight pull to the top of the description cell */
+    align-self: flex-start !important;
+  }
+  /* Give the description cell a touch more top padding so the badge isn't crammed */
+  .ticket-block tr.ticket-type td.description{
+    padding-top: 16px !important;
+  }
+}
