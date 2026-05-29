@@ -1932,3 +1932,181 @@ form.registration-closed input[type=email].mf-prereg-pulse{
     font-size: 16px !important;
   }
 }
+
+
+/* =========================================================
+   18) ROUND 7 EDITS
+   - Reduce white space above Terms & Conditions
+   - Style Terms section: branded card, refined checkboxes
+   - Style Ticket Reservation Summary as a branded card
+   - Style the docked Total bar
+========================================================= */
+
+/* ---- Reduce gap between Purchase Protection (or ticket block) and Terms heading ---- */
+.field-textHeading.registrant-field.field-registrant-5{
+  margin-top: 18px !important;
+  padding-top: 0 !important;
+}
+/* Terms & Conditions heading specifically */
+.field-textHeading.registrant-field.field-registrant-5 h1.text-center{
+  margin: 8px auto 22px !important;
+  padding: 0 !important;
+}
+/* Reduce padding on the purchase-protection container so the gap to Terms is tight */
+.purchase-protection-container{
+  margin: 8px auto 20px !important;
+}
+
+/* ---- Terms section: wrap in a subtle card via the parent registrant-list grid ---- */
+.field-textHeading.registrant-field.field-registrant-5,
+.field-checkbox.registrant-field.field-registrant-6,
+.field-checkbox.registrant-field.field-registrant-7,
+.field-checkbox.registrant-field.field-registrant-8{
+  padding-left: 22px !important;
+  padding-right: 22px !important;
+}
+
+/* Style each checkbox row */
+.field-checkbox.registrant-field.field-registrant-6,
+.field-checkbox.registrant-field.field-registrant-7,
+.field-checkbox.registrant-field.field-registrant-8{
+  padding: 14px 22px !important;
+  margin: 0 auto 10px !important;
+  max-width: 720px !important;
+  background: rgba(255,255,255,0.65) !important;
+  border: 1px solid rgba(27,94,59,0.10) !important;
+  border-radius: 12px !important;
+}
+
+/* Checkbox label heading */
+.field-checkbox.registrant-field label,
+.field-checkbox.registrant-field .control-label{
+  font-family: var(--mf-title-font) !important;
+  font-weight: 800 !important;
+  color: #1b3d26 !important;
+  font-size: 14.5px !important;
+  letter-spacing: 0.005em !important;
+}
+
+/* Checkbox body text (paragraphs under the label) */
+.field-checkbox.registrant-field p{
+  color: rgba(0,0,0,0.55) !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  margin: 6px 0 !important;
+}
+
+/* Native checkbox styling - rounded, brand color */
+.field-checkbox.registrant-field input[type="checkbox"]{
+  width: 18px !important;
+  height: 18px !important;
+  accent-color: #1b5e3b !important;
+  cursor: pointer !important;
+}
+
+/* ---- Ticket Reservation Summary card ---- */
+.field-summary.registrant-field{
+  max-width: 720px !important;
+  margin: 8px auto 14px !important;
+  padding: 0 22px !important;
+}
+.field-summary .summary-container{
+  background: linear-gradient(180deg, rgba(255,253,235,0.90), rgba(255,250,222,0.85)) !important;
+  border: 1.5px solid rgba(27,94,59,0.18) !important;
+  border-radius: 16px !important;
+  padding: 18px 22px !important;
+  box-shadow: 0 8px 20px rgba(27,94,59,0.06) !important;
+}
+.field-summary .summary-details{
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+.field-summary .summary-details th{
+  font-family: var(--mf-title-font) !important;
+  font-weight: 900 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #1b5e3b !important;
+  padding: 6px 8px 14px !important;
+  border-bottom: 1px solid rgba(27,94,59,0.18) !important;
+  text-align: left !important;
+}
+.field-summary .summary-details th:last-child{
+  text-align: right !important;
+}
+.field-summary .summary-details td{
+  font-family: var(--mf-title-font) !important;
+  font-size: 14px !important;
+  color: #1b3d26 !important;
+  padding: 10px 8px !important;
+  border-bottom: 1px solid rgba(27,94,59,0.08) !important;
+}
+.field-summary .summary-details td:last-child{
+  text-align: right !important;
+  font-weight: 700 !important;
+  color: #1b5e3b !important;
+  white-space: nowrap !important;
+}
+.field-summary .summary-details tr:last-child td{
+  border-bottom: 0 !important;
+}
+
+/* ---- Total bar (docked) ---- */
+.field-summary-total.registrant-field{
+  max-width: 720px !important;
+  margin: 0 auto !important;
+  padding: 0 22px !important;
+}
+.field-summary-total .holds-subtotal{
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background: linear-gradient(180deg, #1b5e3b, #143d27) !important;
+  color: #ffffff !important;
+  padding: 14px 22px !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 28px rgba(27,94,59,0.30) !important;
+}
+.field-summary-total .subtotal-label{
+  font-family: var(--mf-title-font) !important;
+  font-weight: 900 !important;
+  font-size: 18px !important;
+  color: #ffffff !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+}
+.field-summary-total .price-now{
+  font-family: var(--mf-title-font) !important;
+  font-weight: 900 !important;
+  font-size: 22px !important;
+  color: #f6c833 !important;
+}
+.field-summary-total .disclaimer{
+  font-family: var(--mf-title-font) !important;
+  font-size: 11px !important;
+  color: rgba(255,255,255,0.75) !important;
+  margin-top: 4px !important;
+  text-align: right !important;
+  font-style: italic !important;
+}
+.field-summary-total .discount-icon svg{
+  fill: #f6c833 !important;
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Mobile spacing */
+@media (max-width: 768px){
+  .field-summary .summary-container,
+  .field-summary-total .holds-subtotal{
+    padding: 14px 16px !important;
+  }
+  .field-summary .summary-details th,
+  .field-summary .summary-details td{
+    font-size: 13px !important;
+    padding: 8px 6px !important;
+  }
+  .field-summary-total .subtotal-label{ font-size: 16px !important; }
+  .field-summary-total .price-now{ font-size: 19px !important; }
+}
