@@ -1546,3 +1546,139 @@ form.registration-closed input[type=email].mf-prereg-pulse{
     --mf-anchorOffset: 104px;
   }
 }
+
+
+/* =========================================================
+   15) ROUND 4 EDITS - DOM-SPECIFIC OVERRIDES
+   Targets confirmed from saved page HTML 2026-05-28.
+========================================================= */
+
+/* ---- Calendar enabled days: GOLD instead of green (matches sunflower theme) ---- */
+.wbx-calendar .row.week .day.enabled{
+  background: #fff3c0 !important;
+  color: #6b4a00 !important;
+  border-color: rgba(246,200,51,0.55) !important;
+  box-shadow: 0 5px 12px rgba(246,200,51,0.20) !important;
+}
+.wbx-calendar .row.week .day.enabled:hover{
+  background: #ffe896 !important;
+  color: #4a3300 !important;
+  border-color: rgba(240,184,32,0.85) !important;
+  box-shadow: 0 7px 16px rgba(246,200,51,0.30) !important;
+}
+.wbx-calendar .row.week .day.selected,
+.wbx-calendar .row.week .day.active{
+  background: linear-gradient(150deg, #f6c833 0%, #f0b820 100%) !important;
+  color: #2d2200 !important;
+  border-color: #f0b820 !important;
+  box-shadow: 0 8px 18px rgba(240,184,32,.40) !important;
+}
+
+/* ---- Ticket category bands (was: bright yellow "Admission", bright orange "Add On Experiences") ----
+   Override TicketSpice's inline background-color with our brand palette. */
+.ticket-block tr.ticket-category{
+  background: linear-gradient(180deg, rgba(27,94,59,0.92), rgba(20,61,39,0.92)) !important;
+  border-radius: 14px !important;
+}
+.ticket-block tr.ticket-category td{
+  background: transparent !important;
+  padding: 16px 20px !important;
+  border: 0 !important;
+}
+.ticket-block tr.ticket-category .category-info{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+}
+.ticket-block tr.ticket-category .category-description h3{
+  font-family: var(--mf-title-font) !important;
+  font-weight: 900 !important;
+  font-size: 20px !important;
+  color: #fff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  letter-spacing: 0.005em !important;
+}
+.ticket-block tr.ticket-category .category-description p{
+  font-family: var(--mf-title-font) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  color: rgba(255,255,255,0.85) !important;
+  margin: 4px 0 0 !important;
+  padding: 0 !important;
+  line-height: 1.4 !important;
+}
+.ticket-block tr.ticket-category .controls,
+.ticket-block tr.ticket-category .fa{
+  color: rgba(255,255,255,0.85) !important;
+  font-size: 22px !important;
+}
+
+/* "Add On Experiences" gets a subtle gold accent border to differentiate from Admission */
+.ticket-block tr.ticket-category:has(h3:not(:contains("Admission"))),
+.ticket-block tr.ticket-category + tr ~ tr.ticket-category{
+  border-top: 3px solid #f6c833 !important;
+}
+/* Simpler fallback: any 2nd+ ticket-category row gets the gold accent */
+.ticket-block tr.ticket-category ~ tr.ticket-category{
+  border-top: 3px solid #f6c833 !important;
+}
+
+/* ---- "Tickets" / "Price" column header row (tbody, not thead) ---- */
+.ticket-block table.holds-tickets tbody tr > th.description,
+.ticket-block table.holds-tickets tbody tr > th.cost{
+  background: rgba(255,255,255,0.94) !important;
+  color: #1b3d26 !important;
+  font-family: var(--mf-title-font) !important;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  padding: 14px 18px !important;
+  border: 1px solid rgba(27,94,59,0.08) !important;
+}
+.ticket-block table.holds-tickets tbody tr > th.description{
+  border-radius: 12px 0 0 12px !important;
+  border-right: 0 !important;
+}
+.ticket-block table.holds-tickets tbody tr > th.cost{
+  border-radius: 0 12px 12px 0 !important;
+  border-left: 0 !important;
+}
+
+/* ---- Price slash: make the badge + slashed price MORE prominent ---- */
+.mf-sf-price-row{
+  font-size: 22px !important;  /* was 17px */
+  gap: 8px !important;
+}
+.mf-sf-old{
+  font-size: 20px !important;
+  text-decoration-thickness: 2.5px !important;
+}
+.mf-sf-new{
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  color: #c8530b !important;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.05) !important;
+}
+.mf-sf-fee-line{
+  font-size: 12.5px !important;
+  margin-top: 4px !important;
+}
+
+/* ---- Sale badge: a touch larger, sits cleaner above the title ---- */
+.mf-sf-badge{
+  font-size: 13px !important;
+  padding: 5px 14px !important;
+  min-height: 28px !important;
+  top: -42px !important;
+}
+@media (max-width: 768px){
+  .mf-sf-badge{
+    top: -36px !important;
+    font-size: 12px !important;
+    padding: 4px 11px !important;
+    min-height: 26px !important;
+  }
+}
