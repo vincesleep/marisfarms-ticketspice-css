@@ -1,371 +1,1005 @@
-/* ============================================================
-   MARIS FARMS - 2026 Summer Festival - TicketSpice Page CSS
-   File: summerfest-ticketspice.css
-   Repo: vincesleep/marisfarms-ticketspice-css
-
-   Loaded via the <link> tag in 2-summerfest-promo-script.html.
-   This file handles page-level styling that can't live inside
-   the form-designer HTML block (calendar shell, legend chips,
-   ticket-row tweaks, global font, etc.).
-
-   Brand palette
-     Forest green deep   #1b5e3b
-     Forest green med    #2d8c5e
-     Sunflower gold      #f6c833
-     Sunflower gold 2    #f0b820
-     Harvest orange      #f4a03a
-     Cream               #fffce8
-   ============================================================ */
+/* =========================================================
+   MARIS FARMS / TICKETSPICE
+   2026 Summer Festival — Full Custom CSS
+   Source: ported from BAB CSS, palette swapped to summer (forest green #1b5e3b, sunflower gold #f6c833, harvest orange #f4a03a, cream #fffce8)
+   - Font: Nunito (consistent with pre-reg page brand)
+   - Title underline kept from BAB pattern with summer palette
+   - All other styles preserved
+========================================================= */
 
 
-/* ── Nunito self-host via fontsource (used by all SF surfaces) ── */
-@font-face {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('https://unpkg.com/@fontsource/nunito/files/nunito-latin-400-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('https://unpkg.com/@fontsource/nunito/files/nunito-latin-700-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url('https://unpkg.com/@fontsource/nunito/files/nunito-latin-900-normal.woff2') format('woff2');
-}
-
-
-/* ── Page-wide base ── */
-body, .ts-public-form, .form-container {
-  font-family: 'Nunito', 'Segoe UI', Arial, sans-serif !important;
-  background: #fffaf0 !important; /* soft cream */
-}
-
-
-/* ── PAGE H1 (event title) ── */
-h1[data-testid="status-heading"],
-.ticket-form-heading h1,
-.form-header h1 {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  font-weight: 900 !important;
-  color: #1b5e3b !important;
-  letter-spacing: -0.01em !important;
-}
-
-
-/* ============================================================
-   TICKETBLOCK SHELL
-   ============================================================ */
-#ticketBlock {
-  font-family: 'Nunito', Arial, sans-serif !important;
-}
-
-#ticketBlock h4,
-#ticketBlock .description h4 {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  font-weight: 900 !important;
-  color: #1b3d26 !important;
-  font-size: 17px !important;
-  letter-spacing: 0.005em !important;
-}
-
-#ticketBlock .description p,
-#ticketBlock .description .ticket-description {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  font-weight: 400 !important;
-  color: rgba(0, 0, 0, 0.62) !important;
-  line-height: 1.5 !important;
-}
-
-#ticketBlock .price-info-wrapper,
-#ticketBlock .ticket-cost,
-#ticketBlock .ticket-fee,
-#ticketBlock .cost {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  color: #1b5e3b !important;
-}
-
-#ticketBlock tr.ticket {
-  border-top: 1px solid rgba(27, 94, 59, 0.10) !important;
-}
-#ticketBlock tr.ticket:first-child {
-  border-top: 0 !important;
-}
-
-
-/* ── Quantity input + buttons ── */
-#ticketBlock .quantity-wrapper input,
-#ticketBlock input.quantity {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  font-weight: 700 !important;
-  border: 1.5px solid rgba(27, 94, 59, 0.25) !important;
-  border-radius: 8px !important;
-  color: #1b3d26 !important;
-}
-
-#ticketBlock .qty-button,
-#ticketBlock button[class*="quantity"] {
-  background: linear-gradient(150deg, #2d8c5e 0%, #1b5e3b 100%) !important;
-  color: #fff !important;
-  border: 0 !important;
-  font-weight: 900 !important;
-}
-
-
-/* ============================================================
-   DATE PICKER (calendar)
-   ============================================================ */
-.wbx-calendar,
-.ui-datepicker {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  border: 1.5px solid rgba(27, 94, 59, 0.22) !important;
-  border-radius: 14px !important;
-  box-shadow: 0 14px 30px rgba(27, 94, 59, 0.18) !important;
+/* =========================================================
+   0) TOP HEADER CLEANUP
+========================================================= */
+.form-header-wrap{
+  position: relative !important;
   overflow: hidden !important;
-  z-index: 100000 !important;
+  background: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-radius: 0 !important;
 }
 
-.wbx-calendar .month-label,
-.wbx-calendar [class*="month-label"] {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  font-weight: 900 !important;
-  color: #1b5e3b !important;
+.form-header-wrap::before,
+.form-header-wrap::after{
+  content: none !important;
+  display: none !important;
 }
 
-/* Selectable days */
-.wbx-calendar .day.enabled {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  font-weight: 700 !important;
-  background: rgba(246, 200, 51, 0.10) !important;
-  color: #1b3d26 !important;
-  border: 1px solid rgba(246, 200, 51, 0.30) !important;
-  border-radius: 8px !important;
-  transition: all 0.15s ease !important;
-}
-.wbx-calendar .day.enabled:hover {
-  background: linear-gradient(150deg, #f6c833 0%, #f0b820 100%) !important;
-  color: #5a4900 !important;
-  border-color: #f0b820 !important;
-  transform: translateY(-1px) !important;
-}
-.wbx-calendar .day.selected,
-.wbx-calendar .day.enabled.selected {
-  background: linear-gradient(150deg, #2d8c5e 0%, #1b5e3b 100%) !important;
-  color: #fff !important;
-  border-color: #1b5e3b !important;
-  box-shadow: 0 4px 10px rgba(27, 94, 59, 0.28) !important;
-}
-
-.wbx-calendar .day.disabled,
-.wbx-calendar .day.unavailable {
-  color: rgba(0, 0, 0, 0.25) !important;
+.form-header-wrap .form-nav-header{
   background: transparent !important;
-  border: 1px dashed rgba(0, 0, 0, 0.08) !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.form-header-wrap .form-header{
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 18px 0 22px !important;
+  border-radius: 0 !important;
+}
+
+.form-header-wrap .holds-image{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.form-header-wrap .holds-image img{
+  max-width: 260px !important;
+  height: auto !important;
+  filter: none !important;
+}
+
+.preview-frame .preview-frame__top-bar{
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.preview-frame .preview-frame__message{
+  background: #1b5e3b !important;
 }
 
 
-/* ============================================================
-   CALENDAR LEGEND
-   Injected by the calendar script underneath the table head.
-   ============================================================ */
-.mf-cal-legend {
-  display: flex;
+/* =========================================================
+   1) TITLES / HEADINGS
+   Font: Nunito (matches the 2026 SummerFest pre-reg page)
+   Used at weight 600 (semi-bold) — not heavy
+========================================================= */
+
+/* Nunito from Google Fonts -- weights 400, 700, 900 */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+:root{
+  --mf-title-font: "Nunito", "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", -apple-system, sans-serif;
+  --mf-title-color: #3e3e3e;
+  --mf-title-size: 48px;
+  --mf-title-line-color: #1b5e3b;
+}
+
+/* Center the wrapper */
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align,
+.campaign-form:not(.legacy-form) .field-textHeading.registrant-field .label-align.form-width{
+  text-align: center !important;
+}
+
+/* Title text */
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p,
+.campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center{
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto 36px !important;
+  padding: 0 !important;
+  position: relative !important;
+  font-family: var(--mf-title-font) !important;
+  font-size: var(--mf-title-size) !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0 !important;
+  color: var(--mf-title-color) !important;
+  text-align: center !important;
+  background: none !important;
+  text-shadow: none !important;
+}
+
+/* Carry font through any nested strong/span TicketSpice wraps */
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong,
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong span,
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong span span{
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  font-family: var(--mf-title-font) !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  font-style: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  color: inherit !important;
+  text-shadow: none !important;
+}
+
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p strong::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* ── Brush stroke underline (matches Water Lantern Festival style) ──
+   Hand-painted SVG stroke, inline as a data URI.
+   Color: Maris Farms green #1b5e3b
+   - Thick main stroke, tapers toward the right
+   - Lighter second stroke offset below for depth
+   - Rough, organic feel like a real brush
+─────────────────────────────────────────────────────────────────── */
+
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::after,
+.campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center::after{
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: -22px !important;
+  transform: translateX(-50%) !important;
+  width: 260px !important;
+  height: 18px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 380 22' fill='none'%3E%3Cpath d='M2 14 C 30 7, 70 17, 120 12 C 165 7, 210 16, 260 11 C 300 7, 340 15, 370 10 C 374 9.5, 377 9, 378 9' stroke='%231b5e3b' stroke-width='7' stroke-linecap='round' stroke-linejoin='round' opacity='0.82'/%3E%3Cpath d='M2 15.5 C 30 9, 70 18, 120 13.5 C 165 9, 210 17, 260 13 C 300 9.5, 340 16, 368 12 C 372 11.5, 375 11, 377 11' stroke='%231b5e3b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='0.35'/%3E%3Cpath d='M180 10 C 210 8, 250 13, 290 10 C 320 8, 350 12, 372 9' stroke='%231b5e3b' stroke-width='1.5' stroke-linecap='round' opacity='0.2'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Remove any conflicting ::before on strong */
+.campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::before{
+  content: none !important;
+  display: none !important;
+}
+
+
+/* =========================================================
+   2) TICKET AREA WRAPPER
+========================================================= */
+.campaign-form:not(.legacy-form) .ticket-block{
+  background: transparent !important;
+}
+
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets{
+  border-collapse: separate !important;
+  border-spacing: 0 14px !important;
+  width: 100% !important;
+  background: linear-gradient(180deg, rgba(27,94,59,0.82), rgba(27,94,59,0.72)) !important;
+  border-radius: 22px !important;
+  padding: 14px !important;
+  border: none !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,.10) !important;
+  overflow: visible !important;
+}
+
+
+/* =========================================================
+   3) TICKET HEADER ROW (Tickets for / Price)
+========================================================= */
+table.holds-tickets thead tr:first-child th{
+  background: linear-gradient(180deg, rgba(27,94,59,0.96), rgba(56,116,88,0.92)) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+  padding: 18px 18px !important;
+  font-weight: 800 !important;
+  font-family: var(--mf-title-font) !important;
+  box-shadow: none !important;
+  vertical-align: top !important;
+}
+
+table.holds-tickets thead tr:first-child th.description{
+  border-radius: 16px 0 0 16px !important;
+  border-right: 0 !important;
+}
+
+table.holds-tickets thead tr:first-child th.cost{
+  border-radius: 0 16px 16px 0 !important;
+  border-left: 0 !important;
+  position: relative !important;
+}
+
+table.holds-tickets thead tr:first-child th.cost::before{
+  content: "" !important;
+  position: absolute !important;
+  left: -1px !important;
+  top: 12px !important;
+  bottom: 12px !important;
+  width: 1px !important;
+  background: rgba(255,255,255,0.18) !important;
+}
+
+
+/* =========================================================
+   4) EMPTY STATE (Please choose a date)
+========================================================= */
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets td.empty-block{
+  background: rgba(255,255,255,0.92) !important;
+  border: 1px solid rgba(255,255,255,0.55) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,.06) !important;
+  padding: 18px 22px 42px !important;
+  text-align: center !important;
+  overflow: visible !important;
+}
+
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets td.empty-block h2{
+  margin: 0 0 18px !important;
+  padding: 0 !important;
+  color: #1b5e3b !important;
+  font-weight: 900 !important;
+  font-family: var(--mf-title-font) !important;
+  line-height: 1.22 !important;
+  display: block !important;
+  overflow: visible !important;
+  text-rendering: geometricPrecision !important;
+}
+
+
+/* =========================================================
+   5) DATE INPUT
+========================================================= */
+.campaign-form:not(.legacy-form) .ticket-block .datePicker,
+.campaign-form:not(.legacy-form) .ticket-block .field-area{
+  overflow: visible !important;
+}
+
+.campaign-form:not(.legacy-form) .ticket-block .datePicker{
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+.campaign-form:not(.legacy-form) .ticket-block .datePicker input,
+.campaign-form:not(.legacy-form) .ticket-block .hasDatepicker{
+  background-color: rgba(255,255,255,0.98) !important;
+  border: 1px solid rgba(27,94,59,0.20) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  padding-right: 42px !important;
+  font-family: var(--mf-title-font) !important;
+}
+
+
+/* =========================================================
+   6) CUSTOM CALENDAR / DATEPICKER STYLING
+========================================================= */
+.wbx-calendar{
+  width: 250px !important;
+  max-width: 92vw !important;
+  padding: 0 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(27,94,59,0.14) !important;
+  box-shadow: 0 18px 44px rgba(0,0,0,.16) !important;
+}
+
+.wbx-calendar .header{
+  background: linear-gradient(180deg,#f8fbf9,#f0f7f3) !important;
+  border-bottom: 1px solid rgba(27,94,59,0.12) !important;
+  padding: 10px 12px 8px !important;
+  width: 100% !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+.wbx-calendar .header .month-display{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.wbx-calendar .header .day-names{
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.wbx-calendar .month-label{
+  font-family: var(--mf-title-font) !important;
+  font-size: 16px !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  color: #444 !important;
+}
+
+.wbx-calendar .arrow{
+  width: 32px !important;
+  height: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 999px !important;
+  background: rgba(27,94,59,0.10) !important;
+  color: #1b5e3b !important;
+  transition: background .18s ease,color .18s ease,opacity .18s ease !important;
+}
+
+.wbx-calendar .arrow.enabled:hover{
+  background: rgba(27,94,59,0.18) !important;
+  color: #255640 !important;
+}
+
+.wbx-calendar .arrow.disabled{
+  opacity: .35 !important;
+  pointer-events: none !important;
+}
+
+.wbx-calendar .row.day-names,
+.wbx-calendar .row.week{
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.wbx-calendar .row.day-names{
+  padding: 0 8px 6px !important;
+}
+
+.wbx-calendar .row.week{
+  padding: 0 20px 4px !important;
+}
+
+.wbx-calendar .day{
+  flex: 0 0 14.2857% !important;
+  width: 14.2857% !important;
+  max-width: 14.2857% !important;
+  min-width: 14.2857% !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.wbx-calendar .day-names .day{
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #61706a !important;
+  padding: 6px 0 !important;
+  font-family: var(--mf-title-font) !important;
+}
+
+.wbx-calendar .row.week .day{
+  height: 38px !important;
+  border-radius: 12px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #4a4a4a !important;
+  border: 1px solid transparent !important;
+  font-family: var(--mf-title-font) !important;
+  transition: background .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease,border-color .18s ease !important;
+}
+
+.wbx-calendar .row.week .day.different-month{
+  color: rgba(68,68,68,0.32) !important;
+}
+
+.wbx-calendar .row.week .day.enabled{
+  background: #dceee4 !important;
+  color: #234d3b !important;
+  border-color: rgba(27,94,59,0.40) !important;
+  box-shadow: 0 5px 12px rgba(27,94,59,0.16) !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+.wbx-calendar .row.week .day.enabled:hover{
+  background: #cde5d8 !important;
+  color: #163226 !important;
+  border-color: rgba(27,94,59,0.62) !important;
+  box-shadow: 0 7px 16px rgba(27,94,59,0.22) !important;
+  transform: translateY(-1px) scale(1.03) !important;
+}
+
+.wbx-calendar .row.week .day.selected,
+.wbx-calendar .row.week .day.active{
+  background: #1b5e3b !important;
+  color: #ffffff !important;
+  border-color: #1b5e3b !important;
+  box-shadow: 0 8px 18px rgba(27,94,59,.30) !important;
+}
+
+
+/* =========================================================
+   7) TICKET ROW CARDS
+========================================================= */
+.ticket-block tr.ticket-type td.description,
+.ticket-block table.holds-tickets .price-info-wrapper{
+  background: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: none !important;
+  padding: 16px 16px !important;
+}
+
+.ticket-block tr.ticket-type td.description{
+  border-right: 0 !important;
+  border-radius: 16px 0 0 16px !important;
+}
+
+.ticket-block table.holds-tickets .price-info-wrapper{
+  border-left: 0 !important;
+  border-radius: 0 16px 16px 0 !important;
+  position: relative !important;
+}
+
+.ticket-block table.holds-tickets .price-info-wrapper::before{
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 16px !important;
+  bottom: 16px !important;
+  width: 1px !important;
+  background: rgba(0,0,0,0.06) !important;
+}
+
+.ticket-block tr.ticket-type:hover td.description,
+.ticket-block tr.ticket-type:hover td.price-info-wrapper{
+  border-color: rgba(27,94,59,0.18) !important;
+  box-shadow: none !important;
+}
+
+.ticket-block tr.ticket-type td.description h4{
+  color: #2f3a35 !important;
+  font-weight: 600 !important;
+  font-family: var(--mf-title-font) !important;
+  font-size: 16px !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* ALL ticket description body text — dates, description paragraphs */
+.ticket-block tr.ticket-type td.description,
+.ticket-block tr.ticket-type td.description p,
+.ticket-block tr.ticket-type td.description div,
+.ticket-block tr.ticket-type td.description span,
+.ticket-block tr.ticket-type td.description li{
+  font-family: var(--mf-title-font) !important;
+}
+
+.ticket-block tr.ticket-type td.description p{
+  color: rgba(0,0,0,0.58) !important;
+  font-weight: 400 !important;
+  font-size: 13px !important;
+}
+
+.ticket-block table.holds-tickets .cost-fee-info-wrapper .cost-fee-wrapper .ticket-cost{
+  color: #1b5e3b !important;
+  font-weight: 600 !important;
+  font-family: var(--mf-title-font) !important;
+  font-size: 17px !important;
+  letter-spacing: 0 !important;
+}
+
+/* Consistent price sizing for ALL ticket types — covers add-ons, select-style, flat prices */
+.ticket-block tr.ticket-type td.price-info-wrapper,
+.ticket-block tr.ticket-type td.price-info-wrapper *{
+  font-family: var(--mf-title-font) !important;
+}
+.ticket-block tr.ticket-type td.price-info-wrapper .ticket-cost,
+.ticket-block tr.ticket-type td.price-info-wrapper .cost,
+.ticket-block tr.ticket-type td.price-info-wrapper [class*="ticket-cost"],
+.ticket-block tr.ticket-type td.price-info-wrapper [class*="price"]{
+  font-size   : 17px !important;
+  font-weight : 600 !important;
+  color       : #1b5e3b !important;
+}
+/* Add-on ticket price (e.g. $115.00 shown as large text outside cost-fee-wrapper) */
+.ticket-block tr.ticket-type td.price-info-wrapper > div > .ticket-cost,
+.ticket-block tr.ticket-type td.price-info-wrapper .price-display,
+.ticket-block tr.ticket-type td.price-info-wrapper strong{
+  font-family : var(--mf-title-font) !important;
+  font-size   : 17px !important;
+  font-weight : 600 !important;
+  color       : #1b5e3b !important;
+}
+
+.ticket-block table.holds-tickets .ticket-fee{
+  color: rgba(0,0,0,0.40) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  font-family: var(--mf-title-font) !important;
+}
+
+/* "Price and availability may vary" subtext */
+.ticket-block tr.ticket-type td.price-info-wrapper .price-note,
+.ticket-block tr.ticket-type td.price-info-wrapper .availability-note,
+.ticket-block tr.ticket-type td.price-info-wrapper small{
+  font-family : var(--mf-title-font) !important;
+  font-size   : 12px !important;
+  color       : rgba(0,0,0,0.42) !important;
+}
+
+.campaign-form:not(.legacy-form) .ticket-block select{
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  color: #1b5e3b !important;
+  border: 1px solid rgba(27,94,59,0.28) !important;
+  border-radius: 12px !important;
+  background-color: #ffffff !important;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' fill='none'><path d='M5 7.5L10 12.5L15 7.5' stroke='%231b5e3b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  background-size: 16px 16px !important;
+  box-shadow: none !important;
+  padding: 10px 38px 10px 14px !important;
+  font-weight: 600 !important;
+  font-family: var(--mf-title-font) !important;
+  cursor: pointer !important;
+}
+
+/* Ensure option text is always readable in native dropdown */
+.campaign-form:not(.legacy-form) .ticket-block select option{
+  color: #2f3a35 !important;
+  background: #ffffff !important;
+  font-family: var(--mf-title-font) !important;
+  font-weight: 400 !important;
+}
+
+
+/* =========================================================
+   8) BUTTONS — match summer brand: Nunito + forest green gradient
+========================================================= */
+.campaign-form:not(.legacy-form) .btn-danger,
+.campaign-form:not(.legacy-form) .btn-primary,
+.campaign-form:not(.legacy-form) .btn:not(.btn--transparent):not(.btn--plus):not(.btn--minus):not(.btn--home):not(.btn--tooltipstered):not(.btn--blue){
+  font-family: var(--mf-title-font) !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  color: white !important;
+  border-radius: 10px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  text-transform: uppercase !important;
+}
+
+
+/* =========================================================
+   9) DIVIDER + TOTAL
+========================================================= */
+.ticket-block tr.ticket-level-divider td{
+  background: transparent !important;
+}
+
+.ticket-block tr.ticket-level-divider td hr{
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.28) !important;
+  opacity: 1 !important;
+  margin: 2px 12px 0 !important;
+}
+
+.ticket-block table.holds-tickets tfoot tr.total td{
+  background: transparent !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  font-size: 18px !important;
+  font-family: var(--mf-title-font) !important;
+  border: 0 !important;
+  padding: 12px 10px 2px !important;
+  text-align: right !important;
+  text-shadow: none !important;
+}
+
+
+/* =========================================================
+   10) MOBILE FIXES
+========================================================= */
+@media (max-width: 768px){
+
+  .campaign-form:not(.legacy-form) .ticket-block table.holds-tickets{
+    border-spacing: 0 12px !important;
+    border-radius: 18px !important;
+    padding: 10px !important;
+  }
+
+  table.holds-tickets thead{
+    display: table-header-group !important;
+  }
+
+  table.holds-tickets thead tr:first-child{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  table.holds-tickets thead tr:first-child th.description,
+  table.holds-tickets thead tr:first-child th.cost{
+    display: block !important;
+    width: 100% !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255,255,255,0.16) !important;
+    box-sizing: border-box !important;
+  }
+
+  table.holds-tickets thead tr:first-child th.description{
+    border-right: 1px solid rgba(255,255,255,0.16) !important;
+    position: relative !important;
+  }
+
+  table.holds-tickets thead tr:first-child th.cost{
+    border-left: 1px solid rgba(255,255,255,0.16) !important;
+  }
+
+  table.holds-tickets thead tr:first-child th.cost::before{
+    display: none !important;
+  }
+
+  table.holds-tickets thead tr:first-child th.description .field-area,
+  table.holds-tickets thead tr:first-child th.description .datePicker{
+    display: block !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    z-index: 20 !important;
+  }
+
+  table.holds-tickets thead tr:first-child th.description .datePicker input,
+  table.holds-tickets thead tr:first-child th.description .hasDatepicker{
+    width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+
+  table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .field-area,
+  table.holds-tickets:has(td.empty-block) thead tr:first-child th.description .datePicker{
+    position: absolute !important;
+    left: 50% !important;
+    top: calc(100% + 80px) !important;
+    transform: translateX(-50%) !important;
+    width: min(82vw, 320px) !important;
+    margin: 0 !important;
+    z-index: 40 !important;
+  }
+
+  .campaign-form:not(.legacy-form) .ticket-block table.holds-tickets:has(td.empty-block) td.empty-block{
+    padding: 54px 16px 34px !important;
+  }
+
+  .campaign-form:not(.legacy-form) .ticket-block table.holds-tickets:has(td.empty-block) td.empty-block h2{
+    margin: 0 0 64px !important;
+    line-height: 1.18 !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .ticket-block tr.ticket-type td.description,
+  .ticket-block tr.ticket-type td.price-info-wrapper{
+    display: block !important;
+    width: 100% !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(0,0,0,0.06) !important;
+    box-shadow: none !important;
+  }
+
+  .ticket-block table.holds-tickets .price-info-wrapper::before{
+    display: none !important;
+  }
+
+  .ticket-block tr.ticket-type td.description{
+    border-right: 1px solid rgba(0,0,0,0.06) !important;
+  }
+
+  .ticket-block tr.ticket-type td.price-info-wrapper{
+    border-left: 1px solid rgba(0,0,0,0.06) !important;
+    margin-top: 8px !important;
+  }
+
+  /* Mobile title sizing */
+  .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p,
+  .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center{
+    font-size: 30px !important;
+    margin: 0 auto 32px !important;
+  }
+
+  /* Brush stroke underline — scale down on mobile */
+  .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::after,
+  .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center::after{
+    width: 160px !important;
+    height: 14px !important;
+    bottom: -18px !important;
+  }
+
+  .wbx-calendar .month-label{
+    font-size: 15px !important;
+  }
+}
+
+
+/* =========================================================
+   11) OVERFLOW / POPUP SAFETY
+========================================================= */
+.campaign-form:not(.legacy-form) .ticket-block,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets thead,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets thead tr,
+.campaign-form:not(.legacy-form) .ticket-block table.holds-tickets thead th,
+.campaign-form:not(.legacy-form) .ticket-block .field-area,
+.campaign-form:not(.legacy-form) .ticket-block .datePicker{
+  overflow: visible !important;
+}
+
+
+/* =========================================================
+   11b) SECTION HEADINGS — Tickets, Billing Information,
+        Terms &amp; Conditions. Nunito at 26px / weight 600,
+        matching the ticket row font for visual consistency.
+========================================================= */
+
+/* "Tickets" header inside the ticket block (th text) */
+table.holds-tickets thead tr:first-child th{
+  font-family: var(--mf-title-font) !important;
+  font-size  : 18px !important;
+  font-weight: 600 !important;
+}
+
+/* Billing Information h1 */
+.campaign-form:not(.legacy-form) .billing-wrap h1,
+.campaign-form:not(.legacy-form) .billing-section h1,
+.campaign-form:not(.legacy-form) h1.billing-title,
+.campaign-form:not(.legacy-form) .field-textHeading.billing-field h1,
+.campaign-form:not(.legacy-form) .registrant-header h1,
+.campaign-form:not(.legacy-form) .registrant-section > h1{
+  font-family   : var(--mf-title-font) !important;
+  font-size     : 26px !important;
+  font-weight   : 600 !important;
+  color         : var(--mf-title-color) !important;
+  letter-spacing: 0 !important;
+  text-align    : center !important;
+  margin-bottom : 20px !important;
+}
+
+/* Catch-all: any h1 that isn't the main page title */
+.campaign-form:not(.legacy-form) h1:not(.text-center){
+  font-family: var(--mf-title-font) !important;
+  font-size  : 26px !important;
+  font-weight: 600 !important;
+  color      : var(--mf-title-color) !important;
+}
+
+/* Terms & Conditions + any other section h2/h3 headings */
+.campaign-form:not(.legacy-form) .section-header,
+.campaign-form:not(.legacy-form) .terms-header,
+.campaign-form:not(.legacy-form) h2.section-title,
+.campaign-form:not(.legacy-form) h3.section-title{
+  font-family: var(--mf-title-font) !important;
+  font-size  : 20px !important;
+  font-weight: 600 !important;
+  color      : var(--mf-title-color) !important;
+}
+
+/* Form field labels throughout billing section */
+.campaign-form:not(.legacy-form) .field-label,
+.campaign-form:not(.legacy-form) label{
+  font-family: var(--mf-title-font) !important;
+}
+
+
+/* =========================================================
+   12) PREREG / EXTRA SECTIONS
+========================================================= */
+.mf-preview-video{
+  max-width: 900px;
+  margin: 0 auto 18px;
+  text-align: center;
+}
+
+.mf-preview-video .mf-video-wrap{
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(2,6,23,.18);
+  background: #000;
+}
+
+.mf-preview-video .mf-video-wrap iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.form-message{
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-message > p{
+  margin: 8px auto 10px;
+  font-weight: 900;
+  letter-spacing: .02em;
+  color: #b24b75;
+  font-family: var(--mf-title-font);
+}
+
+.form-message > p:before{
+  content: "🌷 ";
+  font-weight: 700;
+}
+
+.form-message > p:after{
+  content: " 🌷";
+  font-weight: 700;
+}
+
+.form-message > h2{
+  display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px 18px;
+  gap: 8px 10px;
+  align-items: center;
+  margin: 6px auto 18px;
   padding: 12px 14px;
-  margin: 0 0 8px;
-  background: linear-gradient(150deg, #eef7f2 0%, #ddf0e6 100%);
-  border: 1px solid rgba(27, 94, 59, 0.18);
-  border-radius: 12px;
-  font-family: 'Nunito', Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #1b3d26;
+  background: linear-gradient(180deg, rgba(255,236,245,.95), #fff);
+  border: 1px solid rgba(178,75,117,.22);
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(2,6,23,.10);
+  font-family: var(--mf-title-font);
 }
-.mf-cal-legend-item {
+
+.form-message > h2 .countdown-number{
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  justify-content: center;
+  min-width: 40px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg,#c94b7a,#f07aa6);
+  color: #fff;
+  font-weight: 900;
 }
+
+#mf-email{
+  scroll-margin-top: 18px;
+}
+
+form.registration-closed{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: stretch;
+  justify-content: center;
+  max-width: 720px;
+  margin: 14px auto 0;
+  padding: 16px;
+  background: linear-gradient(180deg,rgba(255,236,245,.98),rgba(255,236,245,.65));
+  border: 2px solid rgba(201,75,122,.30);
+  border-radius: 18px;
+  box-shadow: 0 18px 46px rgba(2,6,23,.14);
+}
+
+form.registration-closed input[type=email]{
+  flex: 1 1 260px;
+  height: 56px;
+  border: 2px solid rgba(201,75,122,.26);
+  border-radius: 14px;
+  padding: 0 14px;
+  font-size: 16px;
+  background: #fff;
+  transition: box-shadow .18s ease,border-color .18s ease;
+}
+
+form.registration-closed input[type=email]::placeholder{
+  color: rgba(15,23,42,.45);
+}
+
+form.registration-closed input[type=email]:focus{
+  outline: 0;
+  border-color: rgba(201,75,122,.88);
+  box-shadow: 0 0 0 7px rgba(201,75,122,.18);
+}
+
+form.registration-closed button.btn-primary{
+  flex: 1 1 220px;
+  height: 56px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg,#c94b7a,#f07aa6);
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  font-family: var(--mf-title-font);
+}
+
+form.registration-closed input[type=email].mf-prereg-pulse{
+  border-color: rgba(201,75,122,.95) !important;
+  box-shadow: 0 0 0 9px rgba(201,75,122,.22) !important;
+}
+
+.mf-btn.mf-scroll{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 18px;
+  border-radius: 14px;
+  text-decoration: none;
+  background: linear-gradient(135deg,#c94b7a,#f07aa6);
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: .02em;
+  font-family: var(--mf-title-font);
+}
+
+.mf-btn.mf-scroll:active{
+  transform: translateY(1px);
+}
+
+
+
+/* =========================================================
+   13) CALENDAR LEGEND STYLES
+   Date colors applied via JS inline styles — confirmed via
+   DevTools that cells are <span> with no data-date attr.
+========================================================= */
+
+/* Space between "Please choose a date" label and date input */
+.campaign-form:not(.legacy-form) .ticket-block .field-area,
+.campaign-form:not(.legacy-form) .ticket-block .datePicker {
+  margin-top: 14px !important;
+}
+
+.mf-cal-legend {
+  display         : inline-flex !important;
+  align-items     : center !important;
+  justify-content : flex-start !important;
+  gap             : 16px !important;
+  flex-wrap       : wrap !important;
+  padding         : 6px 16px 6px 10px !important;
+  margin          : 4px 0 0 0 !important;
+  border-radius   : 8px !important;
+  background      : rgba(255,255,255,0.82) !important;
+  border          : 1px solid rgba(27,94,59,0.13) !important;
+  font-family     : var(--mf-title-font) !important;
+  font-size       : 11.5px !important;
+  color           : #4a5a52 !important;
+  font-weight     : 500 !important;
+}
+
+.mf-cal-legend-item {
+  display     : flex !important;
+  align-items : center !important;
+  gap         : 5px !important;
+  white-space : nowrap !important;
+}
+
 .mf-cal-legend-dot {
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.10);
-  flex-shrink: 0;
-}
-.mf-cal-legend-dot.farm {
-  background: linear-gradient(150deg, #2d8c5e 0%, #1b5e3b 100%);
-  border-color: rgba(27, 94, 59, 0.45);
-}
-.mf-cal-legend-dot.picnic {
-  background: linear-gradient(150deg, #f6c833 0%, #f0b820 100%);
-  border-color: rgba(246, 200, 51, 0.55);
+  display       : inline-block !important;
+  width         : 11px !important;
+  height        : 11px !important;
+  border-radius : 50% !important;
+  flex-shrink   : 0 !important;
 }
 
+.mf-cal-legend-dot.farm  { background: #1b5e3b !important; }
+.mf-cal-legend-dot.trip  { background: #d4900a !important; }
+.mf-cal-legend-dot.glean { background: #8b6cc4 !important; }
 
-/* ============================================================
-   TIME PICKER (time-block selection)
-   ============================================================ */
-.wbx-calendar + .timeblock-wrapper,
-.timeblock-wrapper {
-  font-family: 'Nunito', Arial, sans-serif !important;
-}
-
-.timeblock-wrapper .timeblock,
-button[class*="timeblock"] {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  font-weight: 700 !important;
-  border: 1.5px solid rgba(27, 94, 59, 0.22) !important;
-  border-radius: 10px !important;
-  background: #fff !important;
-  color: #1b3d26 !important;
-  transition: all 0.15s ease !important;
-}
-.timeblock-wrapper .timeblock:hover {
-  border-color: #2d8c5e !important;
-  box-shadow: 0 4px 10px rgba(27, 94, 59, 0.12) !important;
-}
-.timeblock-wrapper .timeblock.selected,
-.timeblock-wrapper .timeblock.active {
-  background: linear-gradient(150deg, #2d8c5e 0%, #1b5e3b 100%) !important;
-  color: #fff !important;
-  border-color: #1b5e3b !important;
-}
-
-
-/* ============================================================
-   FORM FIELDS (attendee info)
-   ============================================================ */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-select,
-textarea {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  font-weight: 500 !important;
-  border: 1.5px solid rgba(27, 94, 59, 0.22) !important;
-  border-radius: 10px !important;
-  color: #1b3d26 !important;
-}
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="number"]:focus,
-select:focus,
-textarea:focus {
-  border-color: #2d8c5e !important;
-  box-shadow: 0 0 0 4px rgba(27, 94, 59, 0.12) !important;
-  outline: 0 !important;
-}
-
-label, .label-text {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  font-weight: 700 !important;
-  color: #1b3d26 !important;
-}
-
-
-/* ============================================================
-   CHECKOUT / SUBMIT BUTTON
-   ============================================================ */
-button.btn-primary,
-.checkout-btn,
-button[type="submit"]:not(.qty-button) {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  font-weight: 900 !important;
-  letter-spacing: 0.04em !important;
-  text-transform: uppercase !important;
-  background: linear-gradient(150deg, #2d8c5e 0%, #1b5e3b 100%) !important;
-  color: #fff !important;
-  border: 0 !important;
-  border-radius: 14px !important;
-  padding: 14px 32px !important;
-  box-shadow:
-    0 3px 0 rgba(246, 200, 51, 0.40),
-    0 10px 24px rgba(27, 94, 59, 0.28) !important;
-  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
-}
-button.btn-primary:hover,
-.checkout-btn:hover,
-button[type="submit"]:not(.qty-button):hover {
-  transform: translateY(-1px) !important;
-  box-shadow:
-    0 3px 0 rgba(246, 200, 51, 0.55),
-    0 14px 30px rgba(27, 94, 59, 0.36) !important;
-}
-
-
-/* ============================================================
-   ORDER SUMMARY / TOTALS PANEL
-   ============================================================ */
-.order-summary,
-.cart-summary,
-[class*="summary-panel"] {
-  font-family: 'Nunito', Arial, sans-serif !important;
-  background: linear-gradient(150deg, #eef7f2 0%, #ddf0e6 100%) !important;
-  border: 1.5px solid rgba(27, 94, 59, 0.18) !important;
-  border-radius: 14px !important;
-}
-.order-summary .total,
-.cart-summary .total {
-  color: #1b5e3b !important;
-  font-weight: 900 !important;
-}
-
-
-/* ============================================================
-   GLOBAL POLISH
-   ============================================================ */
-
-/* Friendlier link color */
-a {
-  color: #2d8c5e;
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 2px;
-}
-a:hover {
-  color: #1b5e3b;
-}
-
-/* Smooth scrolling for the in-page CTA jump */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Selection color */
-::selection {
-  background: rgba(246, 200, 51, 0.40);
-  color: #1b3d26;
-}
-
-
-/* ============================================================
-   MOBILE
-   ============================================================ */
-@media (max-width: 640px) {
-  .mf-cal-legend {
-    font-size: 12px;
-    gap: 8px 14px;
-    padding: 10px 12px;
-  }
-  .mf-cal-legend-dot {
-    width: 11px;
-    height: 11px;
-  }
-  #ticketBlock h4,
-  #ticketBlock .description h4 {
-    font-size: 15.5px !important;
-  }
+/* Mother's Day heart icon inside date cell */
+.wbx-calendar span.day .mf-heart {
+  display     : block !important;
+  font-size   : 9px !important;
+  line-height : 1 !important;
+  margin-top  : 1px !important;
+  color       : #e05c8a !important;
+  flex-shrink : 0 !important;
 }
