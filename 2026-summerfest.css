@@ -467,10 +467,20 @@ table.holds-tickets thead tr:first-child th.cost::before{
   font-family: var(--mf-title-font) !important;
 }
 
-.ticket-block tr.ticket-type td.description p{
-  color: rgba(0,0,0,0.58) !important;
-  font-weight: 400 !important;
-  font-size: 13px !important;
+.ticket-block tr.ticket-type td.description p,
+.ticket-block tr.ticket-type td.description div,
+.ticket-block tr.ticket-type td.description li,
+.ticket-block tr.ticket-type td.description span{
+  color: #2d2d2d !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+/* Anchor/email links inside descriptions stay on-brand */
+.ticket-block tr.ticket-type td.description a{
+  color: #1b5e3b !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
 }
 
 .ticket-block table.holds-tickets .cost-fee-info-wrapper .cost-fee-wrapper .ticket-cost{
