@@ -2252,3 +2252,232 @@ form.registration-closed input[type=email].mf-prereg-pulse{
     margin-bottom: 8px !important;
   }
 }
+
+
+/* =========================================================
+   20) ROUND 9 EDITS
+   - Revert Terms / Purchase Protection / Summary / Total styling
+     back to TicketSpice defaults, keeping ONLY our font.
+   - Restore gold bouncy badge (was switched to red, going back).
+   - Redesign price slash for clean UX:
+       small bouncy gold badge above title
+       large bold harvest-orange new price next to gray strikethrough
+       muted single-line fee below
+========================================================= */
+
+/* ---- RESET Terms section cards back to plain (font only) ---- */
+.field-textHeading.registrant-field.field-registrant-5,
+.field-checkbox.registrant-field.field-registrant-6,
+.field-checkbox.registrant-field.field-registrant-7,
+.field-checkbox.registrant-field.field-registrant-8{
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: revert !important;
+  max-width: none !important;
+  margin: revert !important;
+}
+.field-textHeading.registrant-field.field-registrant-5 h1.text-center{
+  margin: revert !important;
+}
+.field-checkbox.registrant-field label,
+.field-checkbox.registrant-field .control-label,
+.field-checkbox.registrant-field p{
+  font-family: var(--mf-title-font) !important;
+  color: revert !important;
+  font-weight: revert !important;
+  font-size: revert !important;
+  line-height: revert !important;
+  letter-spacing: revert !important;
+}
+.field-checkbox.registrant-field input[type="checkbox"]{
+  accent-color: #1b5e3b !important;
+}
+
+/* ---- RESET Purchase Protection card back to plain (font only) ---- */
+.purchase-protection-container,
+.field-purchaseProtection.registrant-field,
+.purchase-protection,
+.purchase-protection-body,
+.pp-yes,
+.protection-radio{
+  background: revert !important;
+  border: revert !important;
+  border-radius: revert !important;
+  padding: revert !important;
+  margin: revert !important;
+  max-width: none !important;
+  box-shadow: revert !important;
+}
+.purchase-protection,
+.purchase-protection-container,
+.purchase-protection *,
+.purchase-protection-container *{
+  font-family: var(--mf-title-font) !important;
+}
+.purchase-protection h3,
+.purchase-protection-container h3,
+.purchase-protection p,
+.purchase-protection-container p,
+.purchase-protection-covers,
+.purchase-protection-covers > div{
+  color: revert !important;
+  font-weight: revert !important;
+  font-size: revert !important;
+  line-height: revert !important;
+}
+.purchase-protection input[type="radio"]{
+  accent-color: #1b5e3b !important;
+}
+
+/* ---- RESET Summary card back to plain (font only) ---- */
+.field-summary.registrant-field{
+  max-width: none !important;
+  margin: revert !important;
+  padding: revert !important;
+}
+.field-summary .summary-container{
+  background: revert !important;
+  border: revert !important;
+  border-radius: revert !important;
+  padding: revert !important;
+  box-shadow: revert !important;
+}
+.field-summary,
+.field-summary *{
+  font-family: var(--mf-title-font) !important;
+}
+.field-summary .summary-details th,
+.field-summary .summary-details td{
+  color: revert !important;
+  font-weight: revert !important;
+  font-size: revert !important;
+  letter-spacing: revert !important;
+  text-transform: revert !important;
+  padding: revert !important;
+  border-bottom: revert !important;
+  text-align: revert !important;
+}
+
+/* ---- RESET Total bar back to plain (font only) ---- */
+.field-summary-total.registrant-field{
+  max-width: none !important;
+  margin: revert !important;
+  padding: revert !important;
+}
+.field-summary-total .holds-subtotal{
+  display: revert !important;
+  justify-content: revert !important;
+  align-items: revert !important;
+  background: revert !important;
+  color: revert !important;
+  padding: revert !important;
+  border-radius: revert !important;
+  box-shadow: revert !important;
+}
+.field-summary-total,
+.field-summary-total *{
+  font-family: var(--mf-title-font) !important;
+}
+.field-summary-total .subtotal-label,
+.field-summary-total .price-now,
+.field-summary-total .disclaimer{
+  color: revert !important;
+  font-weight: revert !important;
+  font-size: revert !important;
+  letter-spacing: revert !important;
+  text-transform: revert !important;
+  text-align: revert !important;
+  font-style: revert !important;
+}
+.field-summary-total .discount-icon svg{
+  fill: revert !important;
+  width: revert !important;
+  height: revert !important;
+}
+
+
+/* ---- RESTORE gold bouncy badge ---- */
+.mf-sf-badge{
+  background: linear-gradient(150deg, #f6c833 0%, #f0b820 100%) !important;
+  color: #5a4900 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 12px rgba(246,200,51,.35) !important;
+}
+
+
+/* =========================================================
+   PRICE SLASH REDESIGN (UX/UI pass)
+   Goals:
+     - Clear visual hierarchy: badge > new price > old price > fee
+     - On-brand: harvest orange for the win, gold for the badge
+     - Compact, doesn't overwhelm the small price column
+     - Reads instantly at glance: "was $20, now $14"
+========================================================= */
+.mf-sf-price-block{
+  display        : flex !important;
+  flex-direction : column !important;
+  align-items    : flex-start !important;
+  gap            : 4px !important;
+  line-height    : 1.1 !important;
+  text-align     : left !important;
+  font-family    : var(--mf-title-font) !important;
+}
+
+/* Primary row: $20 (struck) + $14 (the hero number) */
+.mf-sf-price-row{
+  display        : inline-flex !important;
+  align-items    : baseline !important;
+  gap            : 8px !important;
+  flex-wrap      : wrap !important;
+  font-family    : var(--mf-title-font) !important;
+  line-height    : 1 !important;
+  justify-content: flex-start !important;
+}
+
+.mf-sf-old{
+  font-size                : 16px !important;
+  font-weight              : 600 !important;
+  color                    : #a0a0a0 !important;
+  text-decoration          : line-through !important;
+  text-decoration-thickness: 2px !important;
+  text-decoration-color    : #a0a0a0 !important;
+  opacity                  : 1 !important;
+  line-height              : 1 !important;
+}
+
+.mf-sf-new{
+  font-size  : 24px !important;
+  font-weight: 900 !important;
+  color      : #d54a1e !important;          /* deep harvest orange - reads as "sale" without screaming */
+  letter-spacing: -0.01em !important;
+  line-height: 1 !important;
+}
+
+/* Secondary line: tiny strikethrough base + new base + fee, all muted */
+.mf-sf-fee-line{
+  display        : inline-flex !important;
+  align-items    : baseline !important;
+  flex-wrap      : wrap !important;
+  gap            : 4px !important;
+  font-size      : 11.5px !important;
+  font-weight    : 500 !important;
+  font-family    : var(--mf-title-font) !important;
+  line-height    : 1.3 !important;
+  color          : rgba(0,0,0,0.45) !important;
+  justify-content: flex-start !important;
+  margin-top     : 2px !important;
+}
+.mf-sf-fee-s{
+  text-decoration          : line-through !important;
+  text-decoration-thickness: 1.5px !important;
+  opacity                  : .85 !important;
+}
+.mf-sf-fee-plain{ opacity: 1 !important; }
+
+/* Mobile: scale down a notch so it fits comfortably */
+@media (max-width: 768px){
+  .mf-sf-new{ font-size: 21px !important; }
+  .mf-sf-old{ font-size: 14px !important; }
+  .mf-sf-fee-line{ font-size: 11px !important; }
+}
