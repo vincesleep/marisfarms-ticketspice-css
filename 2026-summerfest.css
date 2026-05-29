@@ -1,6 +1,6 @@
 /* =========================================================
    MARIS FARMS / TICKETSPICE
-   2026 Summer Festival — Full Custom CSS
+   2026 Summer Festival - Full Custom CSS
    Source: ported from BAB CSS, palette swapped to summer (forest green #1b5e3b, sunflower gold #f6c833, harvest orange #f4a03a, cream #fffce8)
    - Font: Nunito (consistent with pre-reg page brand)
    - Title underline kept from BAB pattern with summer palette
@@ -67,7 +67,7 @@
 /* =========================================================
    1) TITLES / HEADINGS
    Font: Nunito (matches the 2026 SummerFest pre-reg page)
-   Used at weight 600 (semi-bold) — not heavy
+   Used at weight 600 (semi-bold) - not heavy
 ========================================================= */
 
 /* Nunito from Google Fonts -- weights 400, 700, 900 */
@@ -129,13 +129,13 @@
   display: none !important;
 }
 
-/* ── Brush stroke underline (matches Water Lantern Festival style) ──
+/* -- Brush stroke underline (matches Water Lantern Festival style) --
    Hand-painted SVG stroke, inline as a data URI.
    Color: Maris Farms green #1b5e3b
    - Thick main stroke, tapers toward the right
    - Lighter second stroke offset below for depth
    - Rough, organic feel like a real brush
-─────────────────────────────────────────────────────────────────── */
+------------------------------------------------------------------- */
 
 .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::after,
 .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center::after{
@@ -458,7 +458,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
   letter-spacing: 0.01em !important;
 }
 
-/* ALL ticket description body text — dates, description paragraphs */
+/* ALL ticket description body text - dates, description paragraphs */
 .ticket-block tr.ticket-type td.description,
 .ticket-block tr.ticket-type td.description p,
 .ticket-block tr.ticket-type td.description div,
@@ -481,7 +481,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
   letter-spacing: 0 !important;
 }
 
-/* Consistent price sizing for ALL ticket types — covers add-ons, select-style, flat prices */
+/* Consistent price sizing for ALL ticket types - covers add-ons, select-style, flat prices */
 .ticket-block tr.ticket-type td.price-info-wrapper,
 .ticket-block tr.ticket-type td.price-info-wrapper *{
   font-family: var(--mf-title-font) !important;
@@ -549,7 +549,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
 
 
 /* =========================================================
-   8) BUTTONS — match summer brand: Nunito + forest green gradient
+   8) BUTTONS - match summer brand: Nunito + forest green gradient
 ========================================================= */
 .campaign-form:not(.legacy-form) .btn-danger,
 .campaign-form:not(.legacy-form) .btn-primary,
@@ -705,7 +705,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
     margin: 0 auto 32px !important;
   }
 
-  /* Brush stroke underline — scale down on mobile */
+  /* Brush stroke underline - scale down on mobile */
   .campaign-form:not(.legacy-form) .field-textParagraph.header-field .form-width.fr-view.label-align p::after,
   .campaign-form:not(.legacy-form) .field-textHeading.registrant-field h1.text-center::after{
     width: 160px !important;
@@ -734,7 +734,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
 
 
 /* =========================================================
-   11b) SECTION HEADINGS — Tickets, Billing Information,
+   11b) SECTION HEADINGS - Tickets, Billing Information,
         Terms &amp; Conditions. Nunito at 26px / weight 600,
         matching the ticket row font for visual consistency.
 ========================================================= */
@@ -830,12 +830,12 @@ table.holds-tickets thead tr:first-child th{
 }
 
 .form-message > p:before{
-  content: "🌷 ";
+  content: "\01F33B  ";
   font-weight: 700;
 }
 
 .form-message > p:after{
-  content: " 🌷";
+  content: " \01F33B ";
   font-weight: 700;
 }
 
@@ -948,7 +948,7 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 
 /* =========================================================
    13) CALENDAR LEGEND STYLES
-   Date colors applied via JS inline styles — confirmed via
+   Date colors applied via JS inline styles - confirmed via
    DevTools that cells are <span> with no data-date attr.
 ========================================================= */
 
