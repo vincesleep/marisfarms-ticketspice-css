@@ -1562,6 +1562,22 @@ form.registration-closed input[type=email].mf-prereg-pulse{
   overflow-wrap: anywhere;
   line-height: 1.4;
 }
+/* Subtle CTA link inside announce cards (Cornhole, Yoga sign-ups) */
+.mf-ts-sumR .mf-announce-link{
+  display: inline-block;
+  margin-top: 4px;
+  color: #1b5e3b;
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 1.5px solid rgba(27,94,59,.30);
+  padding-bottom: 1px;
+  transition: border-color .15s ease, color .15s ease;
+  white-space: nowrap;
+}
+.mf-ts-sumR .mf-announce-link:hover{
+  color: #143d27;
+  border-bottom-color: #1b5e3b;
+}
 
 #mfTicketsAnchor{
   height: 1px;
