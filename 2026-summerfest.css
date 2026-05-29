@@ -1496,14 +1496,18 @@ form.registration-closed input[type=email].mf-prereg-pulse{
   gap: clamp(8px, 1.6vw, 12px);
   width: 100%;
   min-width: 0;
-  /* Keep cards their natural height instead of stretching to equal-height row.
-     Prevents Picnic Nights (shortest content) from looking spaced-out. */
   align-items: start;
 }
 .mf-ts-sumR .mf-announce-card{
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
+}
+.mf-ts-sumR .mf-announce-card-title{
+  margin-bottom: 2px !important;
+}
+.mf-ts-sumR .mf-announce-note{
+  margin-top: 0 !important;
 }
 @media (min-width: 640px){
   .mf-ts-sumR .mf-announce-grid{
