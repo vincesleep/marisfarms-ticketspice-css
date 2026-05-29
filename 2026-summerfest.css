@@ -2138,8 +2138,10 @@ form.registration-closed input[type=email].mf-prereg-pulse{
   font-weight: 600 !important;
 }
 
-/* ---- Hide the SECOND Tickets/Price header row (the one above Mini Photo Sessions) ---- */
-.ticket-block tr.ticket-category:not(:first-of-type) + tr{
+/* ---- Hide the SECOND Tickets/Price header row (the one above Mini Photo Sessions).
+       Scoped to rows with <th> cells so we don't accidentally hide ticket rows. ---- */
+.ticket-block tr.ticket-category:not(:first-of-type) + tr:has(th.cost),
+.ticket-block tr.ticket-category:not(:first-of-type) + tr:has(th.description){
   display: none !important;
 }
 
