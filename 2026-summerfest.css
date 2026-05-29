@@ -467,16 +467,33 @@ table.holds-tickets thead tr:first-child th.cost::before{
   font-family: var(--mf-title-font) !important;
 }
 
+/* Bulletproof readable description text - target the cell AND every descendant.
+   TicketSpice sometimes wraps description text in <p>, sometimes leaves it as
+   text nodes under <div>, so we set color on td.description itself and use a
+   descendant universal so any wrapper inherits the dark text. */
+.ticket-block tr.ticket-type td.description{
+  color: #2d2d2d !important;
+}
+.ticket-block tr.ticket-type td.description *:not(h3):not(h4):not(.mf-optional-label){
+  color: #2d2d2d !important;
+}
+.ticket-block tr.ticket-type td.description,
 .ticket-block tr.ticket-type td.description p,
 .ticket-block tr.ticket-type td.description div,
 .ticket-block tr.ticket-type td.description li,
-.ticket-block tr.ticket-type td.description span{
-  color: #2d2d2d !important;
+.ticket-block tr.ticket-type td.description span,
+.ticket-block tr.ticket-type td.description strong,
+.ticket-block tr.ticket-type td.description em{
   font-weight: 500 !important;
   font-size: 14px !important;
   line-height: 1.55 !important;
 }
-/* Anchor/email links inside descriptions stay on-brand */
+/* Bold/strong tags keep their weight */
+.ticket-block tr.ticket-type td.description strong,
+.ticket-block tr.ticket-type td.description b{
+  font-weight: 800 !important;
+}
+/* Email and link styling - brand green, underlined */
 .ticket-block tr.ticket-type td.description a{
   color: #1b5e3b !important;
   font-weight: 700 !important;
