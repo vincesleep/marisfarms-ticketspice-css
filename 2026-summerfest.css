@@ -474,7 +474,7 @@ table.holds-tickets thead tr:first-child th.cost::before{
 .ticket-block tr.ticket-type td.description{
   color: #2d2d2d !important;
 }
-.ticket-block tr.ticket-type td.description *:not(h3):not(h4):not(.mf-optional-label){
+.ticket-block tr.ticket-type td.description *:not(h3):not(h4):not(.mf-optional-label):not(.mf-sf-badge):not(.mf-sf-title-wrap){
   color: #2d2d2d !important;
 }
 .ticket-block tr.ticket-type td.description,
@@ -2321,6 +2321,18 @@ form.registration-closed input[type=email].mf-prereg-pulse{
   .ticket-block tr.ticket-type td.description h4{
     line-height: 1.25 !important;
   }
+
+  /* Bold both corner pills on mobile */
+  .ticket-block tr.ticket-type td.description .mf-sf-badge,
+  .ticket-block tr.ticket-type td.description .mf-optional-label{
+    font-weight: 900 !important;
+  }
+}
+
+/* Bold both corner pills on desktop too (was getting de-weighted by the description text rule) */
+.mf-sf-badge,
+.mf-optional-label{
+  font-weight: 900 !important;
 }
 
 /* ---- (4) Sale price LEFT-ALIGNED in its cell to match non-sale tickets ---- */
