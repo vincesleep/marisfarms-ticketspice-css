@@ -2481,3 +2481,36 @@ form.registration-closed input[type=email].mf-prereg-pulse{
   .mf-sf-old{ font-size: 14px !important; }
   .mf-sf-fee-line{ font-size: 11px !important; }
 }
+
+
+/* =========================================================
+   21) ROUND 10 EDITS
+   - Bulletproof Add-On indicator for Mini Photo Sessions
+     (Add-On Experiences sits in its own tbody, script can race - use CSS)
+========================================================= */
+
+/* Add a styled "Optional" pill via ::after on every ticket row in any
+   tbody after the first. Catches Mini Photo Sessions + any future add-on. */
+.ticket-block table.holds-tickets tbody:not(:first-of-type) tr.ticket-type td.description div h4::after,
+.ticket-block table.holds-tickets tbody:not(:first-of-type) tr.ticket-type td.description > h4::after{
+  content       : "Optional" !important;
+  display       : inline-block !important;
+  margin-left   : 8px !important;
+  padding       : 2px 9px !important;
+  border-radius : 999px !important;
+  background    : rgba(246,200,51,0.18) !important;
+  border        : 1px solid rgba(246,200,51,0.50) !important;
+  color         : #7a5a00 !important;
+  font-size     : 11px !important;
+  font-weight   : 800 !important;
+  font-family   : var(--mf-title-font) !important;
+  vertical-align: middle !important;
+  letter-spacing: 0.02em !important;
+  white-space   : nowrap !important;
+  line-height   : 1.2 !important;
+}
+
+/* Hide the duplicate JS-injected pill in case the script also fires on this row */
+.ticket-block table.holds-tickets tbody:not(:first-of-type) tr.ticket-type .mf-optional-label{
+  display: none !important;
+}
