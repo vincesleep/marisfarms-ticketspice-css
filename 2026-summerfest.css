@@ -2234,31 +2234,72 @@ form.registration-closed input[type=email].mf-prereg-pulse{
   }
 }
 
-/* ---- (3) Sale badge: TOP of the ticket card on mobile (inline, not absolute) ---- */
+/* ---- (3) MOBILE ONLY - Pills as top-left corner ribbons on the ticket card ---- */
+/* Both the Sale badge and the Optional pill absolute-position to the top-left
+   of td.description, sitting above the ticket image + title. Desktop unchanged. */
 @media (max-width: 768px){
-  /* Reset the absolute positioning so the badge flows above the title naturally */
-  .mf-sf-title-wrap{
+
+  /* Make the description cell the positioning context AND reserve room
+     at the top for the corner pill to sit above image + title. */
+  .ticket-block tr.ticket-type td.description{
+    position: relative !important;
+    padding-top: 42px !important;
+  }
+
+  /* Title-wrap loses its desktop margin so it doesn't push title down further */
+  .ticket-block tr.ticket-type td.description .mf-sf-title-wrap{
     display: block !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
-  .mf-sf-badge{
-    position: static !important;
+
+  /* Sale badge: absolute, top-left corner of the cell */
+  .ticket-block tr.ticket-type td.description .mf-sf-badge{
+    position: absolute !important;
+    top: 10px !important;
+    left: 12px !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    z-index: 5 !important;
     display: inline-flex !important;
-    top: auto !important;
-    left: auto !important;
-    margin: 0 0 10px 0 !important;
-    font-size: 12px !important;
-    padding: 5px 12px !important;
-    min-height: 26px !important;
+    font-size: 11px !important;
+    padding: 4px 11px !important;
+    min-height: 24px !important;
     max-width: none !important;
     white-space: nowrap !important;
     line-height: 1 !important;
-    /* Slight pull to the top of the description cell */
-    align-self: flex-start !important;
   }
-  /* Give the description cell a touch more top padding so the badge isn't crammed */
-  .ticket-block tr.ticket-type td.description{
-    padding-top: 16px !important;
+
+  /* Optional pill: absolute, top-left corner of the cell */
+  .ticket-block tr.ticket-type td.description h4 .mf-optional-label{
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    margin: 0 !important;
+    z-index: 5 !important;
+    display: inline-block !important;
+    font-size: 10px !important;
+    padding: 3px 9px !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1.1 !important;
+    vertical-align: baseline !important;
   }
+
+  /* The h4 doesn't need extra line-height bumping anymore since the pill broke out */
+  .ticket-block tr.ticket-type td.description h4{
+    line-height: 1.25 !important;
+  }
+}
+
+/* ---- (4) Sale price LEFT-ALIGNED in its cell to match non-sale tickets ---- */
+.mf-sf-price-block{
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+.mf-sf-price-row{
+  justify-content: flex-start !important;
+}
+.mf-sf-fee-line{
+  justify-content: flex-start !important;
 }
