@@ -1935,217 +1935,17 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 
 
 /* =========================================================
-   18) ROUND 7 EDITS
-   - Reduce white space above Terms & Conditions
-   - Style Terms section: branded card, refined checkboxes
-   - Style Ticket Reservation Summary as a branded card
-   - Style the docked Total bar
+   18) TICKET AREA: hide duplicate header row + add-on intro line
 ========================================================= */
 
-/* ---- Reduce gap between Purchase Protection (or ticket block) and Terms heading ---- */
-.field-textHeading.registrant-field.field-registrant-5{
-  margin-top: 18px !important;
-  padding-top: 0 !important;
-}
-/* Terms & Conditions heading specifically */
-.field-textHeading.registrant-field.field-registrant-5 h1.text-center{
-  margin: 8px auto 22px !important;
-  padding: 0 !important;
-}
-/* Reduce padding on the purchase-protection container so the gap to Terms is tight */
-.purchase-protection-container{
-  margin: 8px auto 20px !important;
-}
-
-/* ---- Terms section: wrap in a subtle card via the parent registrant-list grid ---- */
-.field-textHeading.registrant-field.field-registrant-5,
-.field-checkbox.registrant-field.field-registrant-6,
-.field-checkbox.registrant-field.field-registrant-7,
-.field-checkbox.registrant-field.field-registrant-8{
-  padding-left: 22px !important;
-  padding-right: 22px !important;
-}
-
-/* Style each checkbox row */
-.field-checkbox.registrant-field.field-registrant-6,
-.field-checkbox.registrant-field.field-registrant-7,
-.field-checkbox.registrant-field.field-registrant-8{
-  padding: 14px 22px !important;
-  margin: 0 auto 10px !important;
-  max-width: 720px !important;
-  background: rgba(255,255,255,0.65) !important;
-  border: 1px solid rgba(27,94,59,0.10) !important;
-  border-radius: 12px !important;
-}
-
-/* Checkbox label heading */
-.field-checkbox.registrant-field label,
-.field-checkbox.registrant-field .control-label{
-  font-family: var(--mf-title-font) !important;
-  font-weight: 800 !important;
-  color: #1b3d26 !important;
-  font-size: 14.5px !important;
-  letter-spacing: 0.005em !important;
-}
-
-/* Checkbox body text (paragraphs under the label) */
-.field-checkbox.registrant-field p{
-  color: rgba(0,0,0,0.55) !important;
-  font-size: 13px !important;
-  line-height: 1.55 !important;
-  margin: 6px 0 !important;
-}
-
-/* Native checkbox styling - rounded, brand color */
-.field-checkbox.registrant-field input[type="checkbox"]{
-  width: 18px !important;
-  height: 18px !important;
-  accent-color: #1b5e3b !important;
-  cursor: pointer !important;
-}
-
-/* ---- Ticket Reservation Summary card ---- */
-.field-summary.registrant-field{
-  max-width: 720px !important;
-  margin: 8px auto 14px !important;
-  padding: 0 22px !important;
-}
-.field-summary .summary-container{
-  background: linear-gradient(180deg, rgba(255,253,235,0.90), rgba(255,250,222,0.85)) !important;
-  border: 1.5px solid rgba(27,94,59,0.18) !important;
-  border-radius: 16px !important;
-  padding: 18px 22px !important;
-  box-shadow: 0 8px 20px rgba(27,94,59,0.06) !important;
-}
-.field-summary .summary-details{
-  width: 100% !important;
-  border-collapse: collapse !important;
-}
-.field-summary .summary-details th{
-  font-family: var(--mf-title-font) !important;
-  font-weight: 900 !important;
-  font-size: 13px !important;
-  letter-spacing: 0.06em !important;
-  text-transform: uppercase !important;
-  color: #1b5e3b !important;
-  padding: 6px 8px 14px !important;
-  border-bottom: 1px solid rgba(27,94,59,0.18) !important;
-  text-align: left !important;
-}
-.field-summary .summary-details th:last-child{
-  text-align: right !important;
-}
-.field-summary .summary-details td{
-  font-family: var(--mf-title-font) !important;
-  font-size: 14px !important;
-  color: #1b3d26 !important;
-  padding: 10px 8px !important;
-  border-bottom: 1px solid rgba(27,94,59,0.08) !important;
-}
-.field-summary .summary-details td:last-child{
-  text-align: right !important;
-  font-weight: 700 !important;
-  color: #1b5e3b !important;
-  white-space: nowrap !important;
-}
-.field-summary .summary-details tr:last-child td{
-  border-bottom: 0 !important;
-}
-
-/* ---- Total bar (docked) ---- */
-.field-summary-total.registrant-field{
-  max-width: 720px !important;
-  margin: 0 auto !important;
-  padding: 0 22px !important;
-}
-.field-summary-total .holds-subtotal{
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  background: linear-gradient(180deg, #1b5e3b, #143d27) !important;
-  color: #ffffff !important;
-  padding: 14px 22px !important;
-  border-radius: 14px !important;
-  box-shadow: 0 10px 28px rgba(27,94,59,0.30) !important;
-}
-.field-summary-total .subtotal-label{
-  font-family: var(--mf-title-font) !important;
-  font-weight: 900 !important;
-  font-size: 18px !important;
-  color: #ffffff !important;
-  letter-spacing: 0.02em !important;
-  text-transform: uppercase !important;
-}
-.field-summary-total .price-now{
-  font-family: var(--mf-title-font) !important;
-  font-weight: 900 !important;
-  font-size: 22px !important;
-  color: #f6c833 !important;
-}
-.field-summary-total .disclaimer{
-  font-family: var(--mf-title-font) !important;
-  font-size: 11px !important;
-  color: rgba(255,255,255,0.75) !important;
-  margin-top: 4px !important;
-  text-align: right !important;
-  font-style: italic !important;
-}
-.field-summary-total .discount-icon svg{
-  fill: #f6c833 !important;
-  width: 14px !important;
-  height: 14px !important;
-}
-
-/* Mobile spacing */
-@media (max-width: 768px){
-  .field-summary .summary-container,
-  .field-summary-total .holds-subtotal{
-    padding: 14px 16px !important;
-  }
-  .field-summary .summary-details th,
-  .field-summary .summary-details td{
-    font-size: 13px !important;
-    padding: 8px 6px !important;
-  }
-  .field-summary-total .subtotal-label{ font-size: 16px !important; }
-  .field-summary-total .price-now{ font-size: 19px !important; }
-}
-
-
-/* =========================================================
-   19) ROUND 8 EDITS
-   - Price slash + badge: match BAB look exactly (red/coral, not gold)
-   - Hide the SECOND Tickets/Price header row (under Add On Experiences)
-   - Add a subtle intro line above the Add On Experiences band
-   - Style Purchase Protection card to match Terms cards (cohesive)
-   - Overall: tighter spacing, consistent card rhythm
-========================================================= */
-
-/* ---- BADGE: solid coral red like BAB (was gold) ---- */
-.mf-sf-badge{
-  background: #ff5c57 !important;
-  color: #ffffff !important;
-  font-weight: 600 !important;
-  box-shadow: 0 4px 12px rgba(255,92,87,0.22) !important;
-}
-
-/* ---- New price color: match the badge (coral red like BAB) ---- */
-.mf-sf-new{
-  color: #ff5c57 !important;
-  font-weight: 600 !important;
-}
-.mf-sf-old{
-  font-weight: 600 !important;
-}
-
-/* ---- Hide the SECOND Tickets/Price header row (the one above Mini Photo Sessions).
-       Scoped to rows with <th> cells so we don't accidentally hide ticket rows. ---- */
+/* Hide the SECOND Tickets/Price header row (above Mini Photo Sessions).
+   Scoped to rows with <th> cells so ticket rows are never affected. */
 .ticket-block tr.ticket-category:not(:first-of-type) + tr:has(th.cost),
 .ticket-block tr.ticket-category:not(:first-of-type) + tr:has(th.description){
   display: none !important;
 }
 
-/* ---- Intro line above Add On Experiences band via ::after on the empty space ---- */
+/* Intro line above Add On Experiences band */
 .ticket-block tr.ticket-category:not(:first-of-type) td::before{
   content: "Customize your visit with these optional add-ons:" !important;
   display: block !important;
@@ -2159,94 +1959,7 @@ form.registration-closed input[type=email].mf-prereg-pulse{
   text-align: left !important;
 }
 
-/* ---- Purchase Protection card: cohesive cream styling matching Terms cards ---- */
-.purchase-protection-container,
-.field-purchaseProtection.registrant-field{
-  max-width: 720px !important;
-  margin: 14px auto 18px !important;
-  padding: 0 22px !important;
-}
-.purchase-protection,
-.purchase-protection-body{
-  background: rgba(255,255,255,0.65) !important;
-  border: 1px solid rgba(27,94,59,0.10) !important;
-  border-radius: 12px !important;
-  padding: 18px 22px !important;
-  font-family: var(--mf-title-font) !important;
-  box-shadow: none !important;
-}
-.purchase-protection h3,
-.purchase-protection-container h3,
-.purchase-protection-container [class*="header"]{
-  font-family: var(--mf-title-font) !important;
-  font-weight: 800 !important;
-  color: #1b3d26 !important;
-  font-size: 14.5px !important;
-  letter-spacing: 0.005em !important;
-}
-.purchase-protection p,
-.purchase-protection-container p{
-  color: rgba(0,0,0,0.55) !important;
-  font-size: 13px !important;
-  font-family: var(--mf-title-font) !important;
-  line-height: 1.55 !important;
-}
-.purchase-protection-covers{
-  font-family: var(--mf-title-font) !important;
-  font-size: 13px !important;
-  color: rgba(0,0,0,0.65) !important;
-}
-.purchase-protection-covers > div,
-.purchase-protection-covers .cover-item{
-  font-family: var(--mf-title-font) !important;
-}
-/* Protection radio rows: match the visual rhythm of the form */
-.pp-yes,
-.protection-radio{
-  background: rgba(255,255,255,0.85) !important;
-  border: 1px solid rgba(27,94,59,0.18) !important;
-  border-radius: 10px !important;
-  padding: 12px 16px !important;
-  margin-top: 8px !important;
-  font-family: var(--mf-title-font) !important;
-}
-/* Brand the radios */
-.purchase-protection input[type="radio"]{
-  accent-color: #1b5e3b !important;
-}
-/* Soften the small RECOMMENDED tag */
-.purchase-protection [class*="recommended"],
-.purchase-protection-container [class*="recommended"]{
-  color: #1b5e3b !important;
-  font-weight: 800 !important;
-  font-size: 11px !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-}
-
-/* ---- Tighten overall spacing for the funnel section (Terms onward) ---- */
-.field-checkbox.registrant-field.field-registrant-6,
-.field-checkbox.registrant-field.field-registrant-7,
-.field-checkbox.registrant-field.field-registrant-8{
-  margin-bottom: 8px !important;
-}
-/* Pull the summary closer to purchase protection */
-.field-summary.registrant-field{
-  margin-top: 4px !important;
-}
-
-/* Mobile - keep coral price visible + tightened sizes */
 @media (max-width: 768px){
-  .mf-sf-badge{
-    font-size: 11px !important;
-    padding: 4px 10px !important;
-    min-height: 24px !important;
-  }
-  .mf-sf-new,
-  .mf-sf-old,
-  .mf-sf-price-row{
-    font-size: 16px !important;
-  }
   .ticket-block tr.ticket-category:not(:first-of-type) td::before{
     font-size: 11px !important;
     margin-bottom: 8px !important;
@@ -2255,145 +1968,37 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 
 
 /* =========================================================
-   20) ROUND 9 EDITS
-   - Revert Terms / Purchase Protection / Summary / Total styling
-     back to TicketSpice defaults, keeping ONLY our font.
-   - Restore gold bouncy badge (was switched to red, going back).
-   - Redesign price slash for clean UX:
-       small bouncy gold badge above title
-       large bold harvest-orange new price next to gray strikethrough
-       muted single-line fee below
+   19) TERMS / PURCHASE PROTECTION / SUMMARY / TOTAL
+   Apply Nunito font only; all layout stays TicketSpice default.
 ========================================================= */
 
-/* ---- RESET Terms section cards back to plain (font only) ---- */
-.field-textHeading.registrant-field.field-registrant-5,
-.field-checkbox.registrant-field.field-registrant-6,
-.field-checkbox.registrant-field.field-registrant-7,
-.field-checkbox.registrant-field.field-registrant-8{
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  padding: revert !important;
-  max-width: none !important;
-  margin: revert !important;
-}
-.field-textHeading.registrant-field.field-registrant-5 h1.text-center{
-  margin: revert !important;
-}
 .field-checkbox.registrant-field label,
 .field-checkbox.registrant-field .control-label,
 .field-checkbox.registrant-field p{
   font-family: var(--mf-title-font) !important;
-  color: revert !important;
-  font-weight: revert !important;
-  font-size: revert !important;
-  line-height: revert !important;
-  letter-spacing: revert !important;
 }
 .field-checkbox.registrant-field input[type="checkbox"]{
   accent-color: #1b5e3b !important;
 }
 
-/* ---- RESET Purchase Protection card back to plain (font only) ---- */
-.purchase-protection-container,
-.field-purchaseProtection.registrant-field,
-.purchase-protection,
-.purchase-protection-body,
-.pp-yes,
-.protection-radio{
-  background: revert !important;
-  border: revert !important;
-  border-radius: revert !important;
-  padding: revert !important;
-  margin: revert !important;
-  max-width: none !important;
-  box-shadow: revert !important;
-}
 .purchase-protection,
 .purchase-protection-container,
 .purchase-protection *,
 .purchase-protection-container *{
   font-family: var(--mf-title-font) !important;
 }
-.purchase-protection h3,
-.purchase-protection-container h3,
-.purchase-protection p,
-.purchase-protection-container p,
-.purchase-protection-covers,
-.purchase-protection-covers > div{
-  color: revert !important;
-  font-weight: revert !important;
-  font-size: revert !important;
-  line-height: revert !important;
-}
 .purchase-protection input[type="radio"]{
   accent-color: #1b5e3b !important;
 }
 
-/* ---- RESET Summary card back to plain (font only) ---- */
-.field-summary.registrant-field{
-  max-width: none !important;
-  margin: revert !important;
-  padding: revert !important;
-}
-.field-summary .summary-container{
-  background: revert !important;
-  border: revert !important;
-  border-radius: revert !important;
-  padding: revert !important;
-  box-shadow: revert !important;
-}
 .field-summary,
 .field-summary *{
   font-family: var(--mf-title-font) !important;
 }
-.field-summary .summary-details th,
-.field-summary .summary-details td{
-  color: revert !important;
-  font-weight: revert !important;
-  font-size: revert !important;
-  letter-spacing: revert !important;
-  text-transform: revert !important;
-  padding: revert !important;
-  border-bottom: revert !important;
-  text-align: revert !important;
-}
 
-/* ---- RESET Total bar back to plain (font only) ---- */
-.field-summary-total.registrant-field{
-  max-width: none !important;
-  margin: revert !important;
-  padding: revert !important;
-}
-.field-summary-total .holds-subtotal{
-  display: revert !important;
-  justify-content: revert !important;
-  align-items: revert !important;
-  background: revert !important;
-  color: revert !important;
-  padding: revert !important;
-  border-radius: revert !important;
-  box-shadow: revert !important;
-}
 .field-summary-total,
 .field-summary-total *{
   font-family: var(--mf-title-font) !important;
-}
-.field-summary-total .subtotal-label,
-.field-summary-total .price-now,
-.field-summary-total .disclaimer{
-  color: revert !important;
-  font-weight: revert !important;
-  font-size: revert !important;
-  letter-spacing: revert !important;
-  text-transform: revert !important;
-  text-align: revert !important;
-  font-style: revert !important;
-}
-.field-summary-total .discount-icon svg{
-  fill: revert !important;
-  width: revert !important;
-  height: revert !important;
 }
 
 
