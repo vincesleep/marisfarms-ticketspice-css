@@ -1828,3 +1828,107 @@ form.registration-closed input[type=email].mf-prereg-pulse{
     padding: 2px 8px !important;
   }
 }
+
+
+/* =========================================================
+   17) ROUND 6 EDITS
+   - Hide first ticket-category band (Admission) entirely
+   - Second+ category bands: transparent bg, white text, no collapse icon
+   - Price slash: revert to BAB pattern (smaller, no SAVE pill, left-aligned)
+   - Optional pill: positioned via JS to render AFTER the title
+========================================================= */
+
+/* Hide the Admission band entirely */
+.ticket-block tr.ticket-category:first-of-type{
+  display: none !important;
+}
+
+/* Subsequent category bands (Add On Experiences): transparent, white text, no icon */
+.ticket-block tr.ticket-category:not(:first-of-type){
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 0 !important;
+}
+.ticket-block tr.ticket-category:not(:first-of-type) td{
+  background: transparent !important;
+  padding: 20px 20px 8px !important;
+  border: 0 !important;
+}
+.ticket-block tr.ticket-category:not(:first-of-type) .category-info{
+  display: block !important;
+  text-align: left !important;
+}
+.ticket-block tr.ticket-category:not(:first-of-type) .category-description h3{
+  color: #ffffff !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  margin: 0 !important;
+}
+.ticket-block tr.ticket-category:not(:first-of-type) .category-description p{
+  color: rgba(255,255,255,0.80) !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  margin-top: 4px !important;
+}
+.ticket-block tr.ticket-category:not(:first-of-type) .controls,
+.ticket-block tr.ticket-category:not(:first-of-type) .fa{
+  display: none !important;
+}
+
+/* ---- Price slash: match BAB pattern (smaller, subtle, no SAVE pill) ---- */
+.mf-sf-price-block{
+  display        : flex !important;
+  flex-direction : column !important;
+  align-items    : flex-start !important;
+  gap            : 3px !important;
+  line-height    : 1.15 !important;
+  text-align     : left !important;
+  font-family    : var(--mf-title-font) !important;
+}
+.mf-sf-price-row{
+  display     : inline-flex !important;
+  align-items : center !important;
+  gap         : 6px !important;
+  flex-wrap   : wrap !important;
+  font-size   : 17px !important;
+  font-weight : 600 !important;
+  line-height : 1.1 !important;
+  justify-content: flex-start !important;
+}
+.mf-sf-old{
+  font-size: 17px !important;
+  color: #9f9f9f !important;
+  font-weight: 600 !important;
+  text-decoration: line-through !important;
+  text-decoration-thickness: 2px !important;
+  opacity: .95 !important;
+}
+.mf-sf-new{
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: #c8530b !important;
+  line-height: 1.1 !important;
+  text-shadow: none !important;
+}
+.mf-sf-fee-line{
+  font-size: 12px !important;
+  margin-top: 0 !important;
+  color: rgba(0,0,0,.42) !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  gap: 3px !important;
+}
+
+/* Hide the SAVE $X pill (we're matching BAB which didn't have one) */
+.mf-sf-savings{
+  display: none !important;
+}
+
+/* Mobile keep the same subtle sizing */
+@media (max-width: 768px){
+  .mf-sf-price-row,
+  .mf-sf-new,
+  .mf-sf-old{
+    font-size: 16px !important;
+  }
+}
