@@ -2335,6 +2335,42 @@ form.registration-closed input[type=email].mf-prereg-pulse{
   font-weight: 900 !important;
 }
 
+/* ============================================================
+   UNIFY OPTIONAL PILL ACROSS BOTH TICKETS (desktop + mobile)
+   Picnic uses a JS-injected <span.mf-optional-label>.
+   Mini Photo Sessions uses a CSS ::after pseudo.
+   Force the <span> to render with identical sizing to the ::after
+   so both look the same. Higher specificity beats the inline JS style.
+============================================================ */
+.ticket-block tr.ticket-type td.description h4 .mf-optional-label,
+.ticket-block tr.ticket-type td.description div h4 .mf-optional-label{
+  display: inline-block !important;
+  margin-left: 8px !important;
+  margin-right: 0 !important;
+  padding: 2px 9px !important;
+  border-radius: 999px !important;
+  background: rgba(246,200,51,0.18) !important;
+  border: 1px solid rgba(246,200,51,0.50) !important;
+  color: #7a5a00 !important;
+  font-size: 11px !important;
+  font-weight: 900 !important;
+  font-family: "Nunito", "Segoe UI", Arial, sans-serif !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.2 !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+/* ============================================================
+   SALE BADGE - darker text for true bold visual weight
+   The gold-on-yellow color was washing out the boldness.
+============================================================ */
+.mf-sf-badge{
+  color: #3d2e00 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.01em !important;
+}
+
 /* ---- (4) Sale price LEFT-ALIGNED in its cell to match non-sale tickets ---- */
 .mf-sf-price-block{
   align-items: flex-start !important;
