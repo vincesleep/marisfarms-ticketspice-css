@@ -1938,15 +1938,13 @@ form.registration-closed input[type=email].mf-prereg-pulse{
    18) TICKET AREA: hide duplicate header row + add-on intro line
 ========================================================= */
 
-/* Hide the SECOND Tickets/Price header row (above Mini Photo Sessions).
-   Scoped to rows with <th> cells so ticket rows are never affected. */
-.ticket-block tr.ticket-category:not(:first-of-type) + tr:has(th.cost),
-.ticket-block tr.ticket-category:not(:first-of-type) + tr:has(th.description){
+/* Hide the Tickets/Price header row inside the second (Add On) tbody */
+.ticket-block table.holds-tickets tbody:not(:first-child) tr:has(th.cost){
   display: none !important;
 }
 
 /* Intro line above Add On Experiences band */
-.ticket-block tr.ticket-category:not(:first-of-type) td::before{
+.ticket-block table.holds-tickets tbody:not(:first-child) tr.ticket-category td::before{
   content: "Customize your visit with these optional add-ons:" !important;
   display: block !important;
   font-family: var(--mf-title-font) !important;
@@ -1960,7 +1958,7 @@ form.registration-closed input[type=email].mf-prereg-pulse{
 }
 
 @media (max-width: 768px){
-  .ticket-block tr.ticket-category:not(:first-of-type) td::before{
+  .ticket-block table.holds-tickets tbody:not(:first-child) tr.ticket-category td::before{
     font-size: 11px !important;
     margin-bottom: 8px !important;
   }
